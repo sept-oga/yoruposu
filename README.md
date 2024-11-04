@@ -31,5 +31,5 @@
 ​
 ## 使用素材
 - フリー写真素材として以下を使用
-  - ぱくたそ（https://www.pakutaso.com/）
-  - Adobe stock（https://stock.adobe.com/jp/）
+  - ぱくたそ (https://www.pakutaso.com/)
+  - Adobe stock (https://stock.adobe.com/jp/)
