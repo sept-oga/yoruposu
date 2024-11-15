@@ -59,4 +59,4 @@ gem 'rename'
 gem 'dotenv-rails'
 
 # こちらに「/.env」の記述をしないと全ての情報がネット上に公開されてしまうので注意
-/.env
+ /.env
