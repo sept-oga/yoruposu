@@ -35,6 +35,11 @@
               <% if user_signed_in? %>
                 <!--ログイン時-->
                 <li>
+                  <%= link_to new_post_path, class: "nav-link" do %>
+                    <i></i> 新規投稿
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
                     <i></i> ログアウト
                   <% end %>
@@ -63,7 +68,7 @@
       <nav>
     </header>
 
-    <main class="mb-auto">
+    <main class="mb-auto mx-3 mt-2">
       <%= yield %>
     </main>
 
