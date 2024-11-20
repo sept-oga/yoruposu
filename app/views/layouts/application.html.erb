@@ -20,10 +20,12 @@
           <%= link_to "ヨルポス", root_path, class: "navbar-brand" %>
 
           <!--検索フォーム-->
-          <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="キーワード検索" aria-label="Search">
-            <button class="btn btn-outline-primary" type="submit">Search</button>
-          </form>
+          <% if user_signed_in? %>
+            <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="キーワード検索" aria-label="Search">
+              <button class="btn btn-outline-primary" type="submit">Search</button>
+            </form>
+          <% end %>
 
           <!--メニュー（ハンバーガーメニュー）-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
