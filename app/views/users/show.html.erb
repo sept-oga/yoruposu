@@ -11,11 +11,15 @@
 <% @posts.each do |post| %>
 <div>
   <%= link_to post_path(post.id) do %>
-    <!-- style: "object-fit: contin;" 縦横比を維持したままサイズ変更 -->
-    <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contin;" %>
+    <!-- style: "object-fit: contain;" 縦横比を維持したままサイズ変更 -->
+    <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
   <% end %>
   <p>タイトル：<%= post.title %></p>
   <p>本文：<%= post.body %></p>
   <p>ユーザーネーム：<%= post.user.name %></p>
+  <% if @user == current_user %>
+    <p><%= link_to "編集", edit_post_path(post) %></p>
+    <p><%= link_to "削除", post_path(post), method: :delete %></p>
+  <% end %>
 </div>
 <% end %>
