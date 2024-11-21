@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <!-- ユーザーの詳細 -->
 <div>
   <h3><%= @user.name %></h3>
@@ -7,7 +11,6 @@
     <p><%= link_to "退会する", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %></p>
   <% end %>
 </div>
-
 
 <!-- ユーザーの投稿一覧 -->
 <% @posts.each do |post| %>
