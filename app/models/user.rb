@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :posts, dependent: :destroy
   
-  validates :name, presence: true
+  validates :name, length: { in: 2..20 }
 
   has_one_attached :profile_image
 
