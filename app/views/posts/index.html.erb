@@ -6,7 +6,7 @@
     <% end %>
     <p>投稿ユーザー:</p>
     <%= link_to user_path(post.user) do %>
-      <%= image_tag post.user.get_profile_image(100,100) %>
+      <%= image_tag post.user.get_profile_image %>
       <%= post.user.name %>
     <% end %>
     <p>タイトル：<%= post.title %></p>
