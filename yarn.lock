@@ -7428,11 +7428,6 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webpac@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/webpac/-/webpac-0.0.1-security.tgz#dfa2bd8909f3213dd1f541cb64fc0f2d8b9ed0b6"
-  integrity sha512-Sfqii3o7pSImbvmg/qQmk88KtxlTYTyxC0xP+5NcKQKARubXzKNU0Qyuaf40sotPjFsbgCwaneAPCq5qboef+w==
-
 webpack-assets-manifest@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/webpack-assets-manifest/-/webpack-assets-manifest-3.1.1.tgz#39bbc3bf2ee57fcd8ba07cda51c9ba4a3c6ae1de"
