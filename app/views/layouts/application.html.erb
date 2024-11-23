@@ -41,6 +41,11 @@
                   <% end %>
                 </li>
                 <li>
+                  <%= link_to posts_path, class: "nav-link" do %>
+                    <i></i> 投稿一覧
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to user_path(current_user.id), class: "nav-link" do %>
                     <i></i> マイページ
                   <% end %>
@@ -64,7 +69,7 @@
                 </li>
                 <li>
                   <%= link_to new_user_session_path, class: "nav-link" do %>
-                    <i></i> サインイン
+                    <i></i> ログイン
                   <% end %>
                 </li>
               <% end %>

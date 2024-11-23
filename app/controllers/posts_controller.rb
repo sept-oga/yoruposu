@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path
+      redirect_to post_path(@post.id)
     else
       render :new
     end
@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   def edit
@@ -36,8 +37,9 @@ class PostsController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
+    user = post.user
     post.destroy
-    redirect_to posts_path
+    redirect_to user_path(user)
   end
 
   # 投稿データのストロングパラメータ
