@@ -23,6 +23,7 @@
   <p>タイトル：<%= post.title %></p>
   <p>本文：<%= post.body %></p>
   <p>ユーザーネーム：<%= post.user.name %></p>
+  <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
   <% if @user == current_user %>
     <p><%= link_to "編集", edit_post_path(post) %></p>
     <p><%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>

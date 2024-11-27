@@ -9,7 +9,8 @@
       <%= image_tag post.user.get_profile_image %>
       <%= post.user.name %>
     <% end %>
-    <p>タイトル：<%= post.title %></p>
+    <p><b><%= post.title %></b></p>
     <p>本文：<%= post.body %></p>
+    <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
   </div>
 <% end %>
