@@ -1,3 +1,4 @@
+<!-- マイページ -->
 <div>
   <%= flash[:notice] %>
 </div>
@@ -20,7 +21,7 @@
     <!-- style: "object-fit: contain;" 縦横比を維持したままサイズ変更 -->
     <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
   <% end %>
-  <p>タイトル：<%= post.title %></p>
+  <p><b><%= post.title %></b></p>
   <p>本文：<%= post.body %></p>
   <p>ユーザーネーム：<%= post.user.name %></p>
   <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
