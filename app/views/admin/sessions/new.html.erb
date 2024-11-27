@@ -1,3 +1,4 @@
+<!-- 管理者用ログイン画面 -->
 <h2>Log in</h2>
 
 <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
@@ -24,4 +25,3 @@
 <% end %>
 
 <%= render "admin/shared/links" %>
-<!-- <%= render "admins/shared/links" %> が正しい？ -->
