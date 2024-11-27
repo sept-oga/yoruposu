@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get 'about', to: 'homes#about', as: 'about'
   resources :users, only: [:show, :edit, :update, :destroy]
-  resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+  resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    resources :comments, only: [:create, :destroy]
+  end
 
   # ゲストログイン機能
   devise_scope :user do

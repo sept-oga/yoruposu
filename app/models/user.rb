@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # アソシエーション
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   validates :name, length: { in: 2..20 }
   validates :introduction, length: { maximum: 200 }
