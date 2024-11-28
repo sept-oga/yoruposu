@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
 
+  namespace :admin do
+    get 'dashboards', to: 'dashboards#index'
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "homes#top"
   get 'about', to: 'homes#about', as: 'about'
