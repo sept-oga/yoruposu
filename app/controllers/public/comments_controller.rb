@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Public::CommentsController < ApplicationController
   def create
     post = Post.find(params[:post_id])
     body = current_user.comments.new(comment_params)
