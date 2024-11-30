@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :admins（コメントアウト）
   devise_for :users
 
   # 管理者の新規登録はスキップ

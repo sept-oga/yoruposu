@@ -4,6 +4,5 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  # emailとpasswordでログイン
-  devise authentication_keys: [:email, :password]
+  devise authentication_keys: [:email]
 end
