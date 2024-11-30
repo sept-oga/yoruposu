@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update, :destroy]
   end
 
+  get '/search', to: 'searches#search'
+
   # ゲストログイン機能
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
