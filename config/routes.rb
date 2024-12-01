@@ -15,13 +15,12 @@ Rails.application.routes.draw do
     devise_for :users
     root to: 'homes#top'
     get 'about', to: 'homes#about', as: 'about'
+    get '/search', to: 'searches#search'
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
     resources :users, only: [:show, :edit, :update, :destroy]
   end
-
-  get '/search', to: 'searches#search'
 
   # ゲストログイン機能
   devise_scope :user do
