@@ -4,9 +4,13 @@
   <title>管理者画面 - ヨルポス</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+
+  <script src="https://kit.fontawesome.com/af13550893.js" crossorigin="anonymous"></script>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
+
+
 <body>
   <% if admin_signed_in? %>
     <div class="text-right">

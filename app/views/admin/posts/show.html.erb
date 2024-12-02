@@ -1,0 +1,27 @@
+<div>
+  <%= image_tag @post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
+  <p><b><%= @post.title %></b></p>
+  <p>本文：<%= @post.body %></p>
+  <p>投稿ユーザー:</p>
+  <%= link_to user_path(@user) do %>
+    <%= image_tag @user.get_profile_image %>
+    <%= @user.name %>
+  <% end %>
+  <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @post.user == current_user %>
+    <%= link_to "編集", edit_post_path(@post) %> | 
+    <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <% end %>
+</div>
+<br>
+
+<!-- コメント -->
+<div>
+  <p>コメント件数：<%= @post.comments.count %></p>
+  <% @post.comments.each do |comment| %>
+    <p><%= image_tag comment.user.get_profile_image %></p>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
+    <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+  <% end %>
+</div>

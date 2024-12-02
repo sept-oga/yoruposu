@@ -44,7 +44,6 @@ class Public::PostsController < ApplicationController
     redirect_to user_path(user)
   end
 
-  # 投稿データのストロングパラメータ
   private
 
   def post_params
