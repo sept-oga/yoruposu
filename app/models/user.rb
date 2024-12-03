@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   
-  validates :name, length: { in: 2..20 }
+  validates :name, length: { maximum: 20 }
   validates :introduction, length: { maximum: 200 }
 
   has_one_attached :profile_image

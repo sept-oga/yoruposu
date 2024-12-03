@@ -1,5 +1,6 @@
 <div>
   <%= image_tag @post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
+  <%= link_to "投稿一覧に戻る", admin_posts_path %>
   <p><b><%= @post.title %></b></p>
   <p>本文：<%= @post.body %></p>
   <p>投稿ユーザー:</p>
