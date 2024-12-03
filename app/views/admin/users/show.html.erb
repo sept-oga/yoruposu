@@ -1,0 +1,20 @@
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image %><br>
+  <p><%= @user.introduction %></p><br>
+  <p><%= link_to "退会する", admin_user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %></p>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+<% @posts.each do |post| %>
+<div>
+  <%= link_to admin_post_path(post.id) do %>
+    <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
+  <% end %>
+  <p><b><%= post.title %></b></p>
+  <p>本文：<%= post.body %></p>
+  <p><%= link_to "#{post.comments.count} コメント", admin_post_path(post.id) %></p>
+  <p><%= link_to "削除", admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+</div>
+<% end %>
