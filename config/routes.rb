@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:show, :destroy]
     resources :posts, only: [:index, :show, :destroy]
+    get '/search', to: 'searches#search'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
