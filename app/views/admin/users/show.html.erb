@@ -1,5 +1,6 @@
 <!-- ユーザーの詳細 -->
 <div>
+  <%= link_to "<< ユーザー一覧に戻る", admin_dashboards_path %>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image %><br>
   <p><%= @user.introduction %></p><br>

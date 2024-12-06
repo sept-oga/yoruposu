@@ -24,7 +24,7 @@
               <%= f.text_field :content %>
               <%= f.select :model, options_for_select({ "ユーザー" => "user", "投稿" => "post" }) %>
               <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
-              <%= f.submit '検索', class: "btn btn-primary" %>
+              <%= f.submit '検索', class: "btn btn-warning" %>
             <% end %>
           <% end %>
         </div>
@@ -36,6 +36,11 @@
               <li>
                 <%= link_to admin_posts_path, class: "nav-link" do %>
                  <i></i> 投稿一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_dashboards_path, class: "nav-link" do %>
+                 <i></i> ユーザー一覧
                 <% end %>
               </li>
               <li>
