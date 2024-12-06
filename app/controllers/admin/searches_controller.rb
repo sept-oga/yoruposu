@@ -1,5 +1,6 @@
 class Admin::SearchesController < ApplicationController
   before_action :authenticate_user!
+	layout 'admin'
 
 	def search
 		@model = params[:model]
