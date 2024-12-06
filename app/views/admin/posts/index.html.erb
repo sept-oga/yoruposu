@@ -5,7 +5,7 @@
       <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
     <% end %>
     <p>投稿ユーザー:</p>
-    <%= link_to user_path(post.user) do %>
+    <%= link_to admin_user_path(post.user) do %>
       <%= image_tag post.user.get_profile_image %>
       <%= post.user.name %>
     <% end %>
@@ -14,3 +14,5 @@
     <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
   </div>
 <% end %>
+
+<%= paginate @posts %>
