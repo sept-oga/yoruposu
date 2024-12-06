@@ -14,7 +14,7 @@
     <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
   <% end %>
   <p><b><%= post.title %></b></p>
-  <p>本文：<%= post.body %></p>
+  <p><%= post.body %></p>
   <p><%= link_to "#{post.comments.count} コメント", admin_post_path(post.id) %></p>
   <p><%= link_to "削除", admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
 </div>

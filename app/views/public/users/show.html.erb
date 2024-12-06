@@ -22,8 +22,7 @@
     <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
   <% end %>
   <p><b><%= post.title %></b></p>
-  <p>本文：<%= post.body %></p>
-  <p>ユーザーネーム：<%= post.user.name %></p>
+  <p><%= post.body %></p>
   <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
   <% if @user == current_user %>
     <p><%= link_to "編集", edit_post_path(post) %></p>
