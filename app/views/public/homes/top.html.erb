@@ -1,16 +1,15 @@
-<div class="main-visual">
-  <h1 class="text-center">ヨルポス</h1>
 
-  <div class="btn-wrapper col-6 mx-auto">
-    <div class="row">
-      <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-    </div>
-    <div class="row">
-      <%= link_to "ログイン",new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
-    </div>
-    <div class="row">
-      <%= link_to "ユーザー登録",new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
-    </div>
-  </div>
+    <h1 class="pb-3 text-center">ヨルポス</h1>
+    <div class="btn-wrapper mx-auto col-6">
+        <div class="row">
+          <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-sm btn-secondary btn-block px-4 mb-3 sign_in", method: :post %>
+        </div>
+        <div class="row">
+          <%= link_to "ログイン",new_user_session_path, class: "btn btn-sm btn-dark btn-block mb-3 sign_in" %>
+        </div>
+        <div class="row">
+          <%= link_to "ユーザー登録",new_user_registration_path, class: "btn btn-sm btn-dark btn-block sign_up" %>
+        </div>
+      </div>
 
-</div>
+

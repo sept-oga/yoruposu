@@ -21,9 +21,10 @@
         <div class="d-flex justify-content-center mb-2">
           <% if user_signed_in? %>
             <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
-              <%= f.text_field :content %>
-              <%= f.select :model, options_for_select({ "ユーザー" => "user", "投稿" => "post" }) %>
-              <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
+              <%= f.text_field :content, class: "form-control form-control-sm" %>
+              <%= f.select :model, options_for_select({ "ユーザー" => "user", "投稿" => "post" }), class: "form-select" %>
+              <%= f.select :method, options_for_select({ "完全一致" => "perfe
+              ct", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }), class: "form-select" %>
               <%= f.submit '検索', class: "btn btn-secondary btn-sm" %>
             <% end %>
           <% end %>
@@ -55,8 +56,13 @@
     </nav>
   </header>
 
-  <main class="mb-auto mx-3 mt-3">
+  <main class="mb-auto p-4">
     <%= yield %>
   </main>
+
+  <div class="bg01">
+    <%= image_tag 'bg01.png', class: 'img-fluid' %>
+  </div>
+  
 </body>
 </html>
