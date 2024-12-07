@@ -31,7 +31,11 @@
 </div>
 <div>
   <%= form_with model: [@post, @comment] do |f| %>
-    <%= f.text_area :body, rows: '3', placeholder: "コメント" %><br>
-    <%= f.submit "送信する" %>
+  <div class="form-group">
+    <%= f.text_area :body, rows: '3', placeholder: "コメント", class: "form-control post_body col-6" %>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="送信" class="btn btn-secondary">
+  </div>
   <% end %>
 </div>
