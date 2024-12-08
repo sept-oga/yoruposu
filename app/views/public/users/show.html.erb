@@ -6,10 +6,12 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image %><br>
-  <p><%= @user.introduction %></p><br>
+  <p><%= @user.introduction %></p>
   <% if @user.email != "guest@example.com" && @user == current_user %>
-    <p><%= link_to "ユーザー編集", edit_user_path(@user) %></p>
-    <p><%= link_to "退会する", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %></p>
+    <div class="btn-group pb-3" role="group">
+      <%= link_to "ユーザー編集", edit_user_path(@user), class: "btn btn-sm btn-primary" %>
+      <%= link_to "退会する", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-sm btn-dark" %>
+    </div>
   <% end %>
 </div>
 
@@ -24,8 +26,10 @@
   <p><%= post.body %></p>
   <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
   <% if @user == current_user %>
-    <p><%= link_to "編集", edit_post_path(post) %></p>
-    <p><%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+    <div class="btn-group pb-3" role="group">
+      <%= link_to "編集", edit_post_path(post), class: "btn btn-sm btn-outline-primary" %>
+      <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
+    </div>
   <% end %>
 </div>
 <% end %>

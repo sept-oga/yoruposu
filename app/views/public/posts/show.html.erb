@@ -22,16 +22,27 @@
 
 <!-- コメント -->
 <div>
-  <p>コメント件数：<%= @post.comments.count %></p>
+  <p>コメント：<%= @post.comments.count %>件</p>
   <% @post.comments.each do |comment| %>
-    <p><%= image_tag comment.user.get_profile_image %></p>
-    <%= comment.user.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
-    <% if comment.user == current_user %>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
-    <% end %>
+    <table class="table table-borderless">
+      <tr>
+        <%= link_to user_path(comment.user) do %>
+          <%= image_tag comment.user.get_profile_image %>
+          <%= comment.user.name %>
+        <% end %>
+      </tr>
+      <tr>
+        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
+      </tr>
+      <tr>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+        <% end %>
+      </tr>
+    </table>
   <% end %>
 </div>
+
 <div>
   <%= form_with model: [@post, @comment] do |f| %>
   <div class="form-group">
