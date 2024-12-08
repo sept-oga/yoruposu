@@ -1,5 +1,5 @@
 <div>
-  <%= link_to "<< 投稿一覧に戻る", admin_posts_path %>
+  <%= link_to "<< 投稿一覧に戻る", admin_posts_path, class: "btn btn-sm btn-secondary" %>
   <%= image_tag @post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
   <p><b><%= @post.title %></b></p>
   <p><%= @post.body %></p>
@@ -8,7 +8,7 @@
     <%= @user.name %>
   <% end %>
   <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-  <%= link_to "削除", admin_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <%= link_to "投稿を削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
 </div>
 <br>
 

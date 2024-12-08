@@ -1,10 +1,10 @@
 <!-- ユーザーの詳細 -->
 <div>
-  <%= link_to "<< ユーザー一覧に戻る", admin_dashboards_path %>
+  <%= link_to "<< ユーザー一覧に戻る", admin_dashboards_path, class: "btn btn-sm btn-secondary" %>
   <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image %><br>
-  <p><%= @user.introduction %></p><br>
-  <p><%= link_to "退会する", admin_user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %></p>
+  <%= image_tag @user.get_profile_image %>
+  <p><%= @user.introduction %></p>
+  <%= link_to "退会", admin_user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-sm btn-dark" %>
 </div>
 
 <!-- ユーザーの投稿一覧 -->
@@ -16,7 +16,7 @@
   <p><b><%= post.title %></b></p>
   <p><%= post.body %></p>
   <p><%= link_to "#{post.comments.count} コメント", admin_post_path(post.id) %></p>
-  <p><%= link_to "削除", admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+  <p><%= link_to "削除", admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %></p>
 </div>
 <% end %>
 
