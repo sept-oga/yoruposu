@@ -1,15 +1,24 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 
-    <h1 class="pb-3 text-center">ヨルポス</h1>
-    <div class="btn-wrapper mx-auto col-6">
-        <div class="row">
-          <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-sm btn-secondary btn-block px-4 mb-3 sign_in", method: :post %>
-        </div>
-        <div class="row">
-          <%= link_to "ログイン",new_user_session_path, class: "btn btn-sm btn-dark btn-block mb-3 sign_in" %>
-        </div>
-        <div class="row">
-          <%= link_to "ユーザー登録",new_user_registration_path, class: "btn btn-sm btn-dark btn-block sign_up" %>
-        </div>
-      </div>
+<h1 class="pb-3 text-center">ヨルポス</h1>
+
+<p class="pb-2 text-center">
+  ヨルポスは街の夜の写真や雰囲気を投稿や鑑賞ができるコミュニティサイトです。<br>
+  夜の街並みが好きな方はもちろん、引っ越し等で治安が知りたい方にも便利なサイトです。<br>
+</p>
+
+<div class="btn-wrapper mx-auto col-6">
+  <div class="row">
+    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-sm btn-secondary btn-block px-4 mb-3 sign_in", method: :post %>
+  </div>
+  <div class="row">
+    <%= link_to "ログイン",new_user_session_path, class: "btn btn-sm btn-dark btn-block mb-3 sign_in" %>
+  </div>
+  <div class="row">
+    <%= link_to "ユーザー登録",new_user_registration_path, class: "btn btn-sm btn-dark btn-block sign_up" %>
+  </div>
+</div>
 
 
