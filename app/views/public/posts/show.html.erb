@@ -1,10 +1,13 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <!-- 投稿詳細画面 -->
 <div>
 <%= link_to "<< 投稿一覧に戻る", posts_path %>
   <%= image_tag @post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
   <p><b><%= @post.title %></b></p>
   <p><%= @post.body %></p>
-  <p>投稿ユーザー:</p>
   <%= link_to user_path(@user) do %>
     <%= image_tag @user.get_profile_image %>
     <%= @user.name %>
