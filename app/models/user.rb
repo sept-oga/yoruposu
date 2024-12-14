@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :group_members, dependent: :destroy
   
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduction, length: { maximum: 200 }

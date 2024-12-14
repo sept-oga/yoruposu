@@ -1,5 +1,8 @@
 class Group < ApplicationRecord
   has_one_attached :image
+
+  has_many :group_members, dependent: :destroy
+  
   validates :title, presence: true, length: { maximum: 50 }
 
   def get_group_image
