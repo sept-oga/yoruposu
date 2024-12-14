@@ -1,11 +1,10 @@
 <h2>管理者ログイン</h2>
-<div>
-  <%= flash[:notice] %>
-</div>
 
 <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
   <% if flash[:alert] %>
-    <div class="alert"><%= alert %></div>
+    <div class="alert alert-warning" role="alert">
+      <i class="fa-solid fa-triangle-exclamation"></i> <%= alert %>
+    </div>
   <% end %>
 
   <div class="field">
