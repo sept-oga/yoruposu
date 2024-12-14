@@ -17,19 +17,19 @@
       <div class="container">
         <div class="navbar-brand">ヨルポス</div>
 
-        <!--検索フォーム-->
-        <div class="d-flex justify-content-center mb-2">
-          <% if user_signed_in? %>
+        <% if admin_signed_in? %>
+          <!--検索フォーム-->
+          <div class="d-flex justify-content-center">
             <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
               <%= f.text_field :content, class: "form-control form-control-sm" %>
               <%= f.select :model, options_for_select({ "ユーザー" => "user", "投稿" => "post" }), class: "form-select form-select-sm" %>
               <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }), class: "form-select form-select-sm" %>
-              <%= f.submit '検索', class: "btn btn-secondary btn-sm" %>
+              <%= f.button class: "btn btn-secondary btn-sm" do %>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
 
-        <% if admin_signed_in? %>
           <!--メニュー（ハンバーガーメニュー）-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,6 +54,7 @@
             </ul>
           </div>
         <% end %>
+        
       </div>
     </nav>
   </header>
