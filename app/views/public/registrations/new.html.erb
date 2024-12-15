@@ -1,23 +1,20 @@
 <h2>新規ユーザー登録</h2>
 
 <%= form_with model: @user, url: user_registration_path do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "layouts/errors", object: @user %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :名前 %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control', autocomplete: "name" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group">
+    <%= f.label :メールアドレス %>
+    <%= f.text_field :email, class: 'form-control', autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
+  <div class="form-group">
+    <%= f.label :パスワード %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 

@@ -29,9 +29,13 @@ ja:
       post:
         title: タイトル
         body: 本文
+      group:
+        name: グループ名
+        introduce: 紹介文
     models:
       user: ユーザー
       post: 投稿
+      group: グループ
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

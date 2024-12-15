@@ -1,0 +1,14 @@
+<!-- object : あらゆるモデルで使えるように -->
+<% if object.errors.any? %>
+  <div class="alert alert-warning" role="alert">
+    <h5>
+      <i class="fa-solid fa-triangle-exclamation"></i> 
+      <%= object.errors.count %>件のエラーが発生しました
+    </h5>
+    <ul class="mb-0">
+      <% object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
