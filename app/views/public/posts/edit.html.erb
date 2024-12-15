@@ -1,3 +1,6 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
 <h2>投稿編集</h2>
 <% if @post.errors.any? %>
   <div class="alert alert-warning" role="alert">
@@ -35,4 +38,6 @@
   </div>
   <%= link_to "投稿を削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
-
+</div>
+</div>
+</div>

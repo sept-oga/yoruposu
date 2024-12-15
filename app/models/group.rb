@@ -7,7 +7,7 @@ class Group < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   def get_group_image
-    (image.attached?) ? image : 'no_image.jpg'
+    (image.attached?) ? image : 'no-image.jpeg'
   end
 
   def is_owned_by?(user)
