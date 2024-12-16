@@ -1,5 +1,5 @@
 <div>
-  <table class='table'>
+  <table class='table', style="color: ghostwhite">
   <thead>
     <tr>
       <th></th>
@@ -15,7 +15,7 @@
         <td><%= link_to group.name, group, class: "group_#{group.id}" %></td>
         <td><%= group.group_members.count %></td>
         <% if group.is_owned_by?(current_user) %>
-          <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn btn-sm btn-secondary" %></td>
+          <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn btn-sm btn-primary" %></td>
         <% end %>
       </tr>
     <% end %>
