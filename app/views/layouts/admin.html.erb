@@ -47,6 +47,11 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to admin_groups_path, class: "nav-link" do %>
+                 <i></i> グループ一覧
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
                 <i></i> ログアウト
                 <% end %>
