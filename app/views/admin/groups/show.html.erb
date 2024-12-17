@@ -22,7 +22,7 @@
             <% end %>
           </td>
           <td>
-            <%= link_to '削除', class: "btn btn-sm btn-secondary" %>
+            <%= link_to "削除", admin_group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-secondary" %>
           </td>
         </tr>
       </table>

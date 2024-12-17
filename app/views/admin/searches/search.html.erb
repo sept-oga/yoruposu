@@ -4,4 +4,7 @@
 <% elsif @model == 'post' %>
 	<h3>投稿 "<%= @content %>" の検索結果</h3>
   <%= render 'admin/posts/index', posts: @records %>
+  <% elsif @model == 'group' %>
+	<h3>グループ "<%= @content %>" の検索結果</h3>
+  <%= render 'admin/groups/index', groups: @records %>
 <% end %>

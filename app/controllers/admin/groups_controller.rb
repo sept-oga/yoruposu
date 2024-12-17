@@ -14,7 +14,6 @@ class Admin::GroupsController < ApplicationController
 
   def destroy
     group = Group.find(params[:id])
-    user = group.user
     group.destroy
     redirect_to admin_groups_path
   end
