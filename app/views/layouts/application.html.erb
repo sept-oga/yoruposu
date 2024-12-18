@@ -81,6 +81,23 @@
               <% end %>
             </ul>
           </div>
+
+          <!-- マイページアイコン -->
+          <% if user_signed_in? %>
+          <div class="dropdown text-end">
+            <div class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= image_tag current_user.get_profile_image, size: '50x50', class: 'rounded-circle' %>
+              <ul class="dropdown-menu text-small shadow" style>
+                <li>
+                  <%= link_to new_post_path, class: "nav-link" do %>
+                    <i></i> 新規投稿
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+
         </div>
       </nav>
     </header>
