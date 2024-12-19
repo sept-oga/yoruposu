@@ -16,40 +16,44 @@
       <nav class="navbar navbar-dark bg-dark shadow">
         <div class="container">
 
-          <!-- マイページアイコン -->
-          <% if user_signed_in? %>
-            <div class="dropdown">
-              <div class="link-body-emphasis">
-                <%= link_to user_path(current_user.id) do %>
-                  <%= image_tag current_user.get_profile_image, size: '50x50', class: 'rounded-circle border border-3 border-secondary border-opacity-25' %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
           <!--トップページへのリンク-->
           <%= link_to "ヨルポス", root_path, class: "navbar-brand text-center mr-0" %>
 
+          
           <!--メニュー（ハンバーガーメニュー）-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <!--メニューリスト-->
-          <div class="collapse navbar-collapse py-2" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <!--ログイン時-->
-                <div class="search_form">
+                <div class="search_form mt-2">
                   <%= form_with url: search_path, method: :get, local: true do |f| %>
-                    <%= f.text_field :content %>
-                    <%= f.select :model, options_for_select({ "ユーザー" => "user", "投稿" => "post", "グループ" => "group" }), class: "form-select form-select-sm" %>
-                    <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }), class: "form-select form-select-sm" %>
+                    <input type="text" name="content" id="content" class="col-3 form-control form-control-sm" style="display:inline!important;">
+                    <select name="model" id="model" class="btn btn-sm btn-secondary">
+                      <option value="user">ユーザー</option>
+                      <option value="post">投稿</option>
+                      <option value="group">グループ</option>
+                    </select>
+                    <select name="method" id="method" class="btn btn-sm btn-secondary">
+                      <option value="perfect">完全一致</option>
+                      <option value="forward">前方一致</option>
+                      <option value="backward">後方一致</option>
+                      <option value="partial">部分一致</option>
+                    </select>
                     <%= f.button class: "btn btn-secondary btn-sm" do %>
                       <i class="fa-solid fa-magnifying-glass"></i>
                     <% end %>
                   <% end %>
                 </div>
 
+                <li>
+                  <%= link_to user_path(current_user.id), class: "nav-link" do %>
+                    <i></i> マイページ
+                  <% end %>
+                </li>
                 <li>
                   <%= link_to new_post_path, class: "nav-link" do %>
                     <i></i> 新規投稿
