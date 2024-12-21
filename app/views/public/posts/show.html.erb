@@ -1,10 +1,7 @@
-<div>
-  <%= flash[:notice] %>
-</div>
+<%= render 'layouts/notice', object: @group %>
 
 <!-- 投稿詳細画面 -->
 <div>
-<%= link_to "<< 投稿一覧に戻る", posts_path, class: "btn btn-sm btn-secondary" %>
   <%= image_tag @post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
   <p><b><%= @post.title %></b></p>
   <p><%= @post.body %></p>
@@ -20,7 +17,6 @@
     </div>
   <% end %>
 </div>
-<br>
 
 <!-- コメント -->
 <div>
@@ -54,4 +50,6 @@
     <input type="submit" value="送信" class="btn btn-secondary">
   </div>
   <% end %>
+
+  <p class="text-center"><%= link_to "投稿一覧へ戻る", posts_path %></p>
 </div>

@@ -1,9 +1,8 @@
 <div>
-  <%= link_to "<< ユーザー一覧に戻る", admin_dashboards_path, class: "btn btn-sm btn-secondary" %>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image %>
   <p><%= @user.introduction %></p>
-  <%= link_to "退会", admin_user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-sm btn-dark" %>
+  <%= link_to "退会", admin_user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-sm btn-secondary" %>
 </div>
 
 <% @posts.each do |post| %>
@@ -19,3 +18,5 @@
 <% end %>
 
 <%= paginate @posts %>
+
+<p class="text-center"><%= link_to "ユーザー一覧へ戻る", admin_dashboards_path %></p>

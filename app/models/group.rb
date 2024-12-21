@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  has_one_attached :image
+  has_one_attached :group_image
   belongs_to :owner, class_name: 'User'
 
   has_many :group_members, dependent: :destroy
@@ -9,7 +9,11 @@ class Group < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   def get_group_image
-    (image.attached?) ? image : 'no-image.jpeg'
+    unless group_image.attached?
+      file_path = Rails.root.join('app/javascript/images/no-image.jpeg')
+      group_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    group_image
   end
 
   def is_owned_by?(user)

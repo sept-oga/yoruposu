@@ -1,0 +1,12 @@
+<!-- object : あらゆるモデルで使えるように -->
+<% if flash[:notice] %>
+  <div class="alert alert-primary" role="alert">
+    <i class="fa-solid fa-circle-check"></i>
+    <%= flash[:notice] %>
+  </div>
+<% elsif flash[:alert] %>
+  <div class="alert alert-warning" role="alert">
+    <i class="fa-solid fa-triangle-exclamation"></i> 
+    <%= flash[:alert] %>
+  </div>
+<% end %>

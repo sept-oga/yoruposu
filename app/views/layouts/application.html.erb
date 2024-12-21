@@ -31,7 +31,7 @@
                 <!--ログイン時-->
                 <div class="search_form mt-2">
                   <%= form_with url: search_path, method: :get, local: true do |f| %>
-                    <input type="text" name="content" id="content" class="col-4 form-control form-control-sm" style="display:inline!important;">
+                    <input type="text" name="content" id="content" placeholder="キーワードを入力" class="col-4 form-control form-control-sm" style="display:inline!important;">
                     <select name="model" id="model" class="btn btn-sm btn-secondary">
                       <option value="user">ユーザー</option>
                       <option value="post">投稿</option>
