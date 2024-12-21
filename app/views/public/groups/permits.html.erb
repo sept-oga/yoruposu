@@ -16,7 +16,7 @@
           <tbody>
             <% @permits.each do |permit| %>
               <tr>
-                <td><%= link_to permit.user.name, public_user_path(permit.user.id), class: "text-dark" %></td>
+                <td><%= link_to permit.user.name, user_path(permit.user.id), class: "text-dark" %></td>
                 <td class="text-right">
                   <%= link_to '加入許可', group_group_members_path(@group, permit_id: permit.id), method: :post, class: "btn btn-sm btn-success" %>
                 </td>
@@ -34,7 +34,7 @@
 
   <div class="row mt-5">
     <div class="col-md-9 mx-auto">
-    <p class="text-center"><%= link_to "戻る", group_path(@group), class: 'text-dark font-weight-bold' %></p>
+    <p class="text-center"><%= link_to "戻る", group_path(@group) %></p>
     </div>
   </div>
 

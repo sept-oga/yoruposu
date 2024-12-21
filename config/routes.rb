@@ -30,8 +30,9 @@ Rails.application.routes.draw do
       resource :permits, only: [:create, :destroy]
       resource :group_members, only: [:create, :destroy]
     end
+    get "groups/:id/permits" => "groups#permits", as: :permits
   end
-  get "groups/:id/permits" => "groups#permits", as: :permits
+  
 
   # ゲストログイン機能
   devise_scope :user do
