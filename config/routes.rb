@@ -27,9 +27,11 @@ Rails.application.routes.draw do
     end
     resources :users, only: [:show, :edit, :update, :destroy]
     resources :groups, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
+      resource :permits, only: [:create, :destroy]
       resource :group_members, only: [:create, :destroy]
     end
   end
+  get "groups/:id/permits" => "groups#permits", as: :permits
 
   # ゲストログイン機能
   devise_scope :user do

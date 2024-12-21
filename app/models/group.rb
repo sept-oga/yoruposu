@@ -1,8 +1,9 @@
 class Group < ApplicationRecord
   has_one_attached :image
   belongs_to :owner, class_name: 'User'
-  has_many :group_members, dependent: :destroy
 
+  has_many :group_members, dependent: :destroy
+  has_many :permits,     dependent: :destroy
   has_many :users, through: :group_members, source: :user
   
   validates :name, presence: true, length: { maximum: 50 }
