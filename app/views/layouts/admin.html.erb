@@ -11,54 +11,64 @@
 </head>
 
 <body>
- <%= render 'layouts/header' %>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container">
         <div class="navbar-brand">ヨルポス</div>
-
-        <% if admin_signed_in? %>
-          <!--検索フォーム-->
-          <div class="search_form">
-            <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
-              <%= f.text_field :content %>
-              <%= f.select :model, options_for_select({ "ユーザー" => "user", "投稿" => "post", "グループ" => "group" }), class: "form-select form-select-sm" %>
-              <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }), class: "form-select form-select-sm" %>
-              <%= f.button class: "btn btn-secondary btn-sm" do %>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              <% end %>
-            <% end %>
-          </div>
 
           <!--メニュー（ハンバーガーメニュー）-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          <!--メニューリスト-->
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <li>
-                <%= link_to admin_posts_path, class: "nav-link" do %>
-                 <i></i> 投稿一覧
-                <% end %>
-              </li>
-              <li>
-                <%= link_to admin_dashboards_path, class: "nav-link" do %>
-                 <i></i> ユーザー一覧
-                <% end %>
-              </li>
-              <li>
-                <%= link_to admin_groups_path, class: "nav-link" do %>
-                 <i></i> グループ一覧
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
-                <i></i> ログアウト
-                <% end %>
-              </li>
+              <% if user_signed_in? %>
+                <!--ログイン時-->
+                <div class="search_form mt-2">
+                  <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+                    <input type="text" name="content" id="content" placeholder="キーワードを入力" class="col-4 form-control form-control-sm" style="display:inline!important;">
+                    <select name="model" id="model" class="btn btn-sm btn-secondary">
+                      <option value="user">ユーザー</option>
+                      <option value="post">投稿</option>
+                      <option value="group">グループ</option>
+                    </select>
+                    <select name="method" id="method" class="btn btn-sm btn-secondary">
+                      <option value="perfect">完全一致</option>
+                      <option value="forward">前方一致</option>
+                      <option value="backward">後方一致</option>
+                      <option value="partial">部分一致</option>
+                    </select>
+                    <%= f.button class: "btn btn-secondary btn-sm" do %>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <li>
+                  <%= link_to admin_posts_path, class: "nav-link" do %>
+                    <i></i> 投稿一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_dashboards_path, class: "nav-link" do %>
+                    <i></i> ユーザー一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_groups_path, class: "nav-link" do %>
+                  <i></i> グループ一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
+                    <i></i> ログアウト
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </div>
-        <% end %>
         
       </div>
     </nav>
