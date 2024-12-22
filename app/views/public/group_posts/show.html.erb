@@ -1,1 +1,22 @@
-<p>GroupPost#show</p>
+<%= render 'layouts/notice', object: @group_post %>
+
+<!-- 投稿詳細画面 -->
+<div>
+  <%= image_tag @group_post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
+  <p><b><%= @group_post.title %></b></p>
+  <p><%= @group_post.body %></p>
+  <%= link_to user_path(@user) do %>
+    <%= image_tag @user.get_profile_image %>
+    <%= @user.name %>
+  <% end %>
+  <p>投稿日：<%= @group_post.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @group_post.user == current_user %>
+    <div class="btn-group pb-3" role="group">
+      <%= link_to "投稿を編集", edit_group_group_post_path(@group_post), class: "btn btn-sm btn-outline-primary" %>
+      <%= link_to "投稿を削除", group_group_post_path(@group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>
+
+  <p class="text-center"><%= link_to "投稿一覧へ戻る", group_group_posts_path(@group_post.group.id) %></p>
+</div>
