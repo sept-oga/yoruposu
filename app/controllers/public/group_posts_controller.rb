@@ -25,8 +25,22 @@ class Public::GroupPostsController < ApplicationController
     @group_post = GroupPost.find(params[:id])
     @user = @group_post.user
   end
-    
+
+  def edit
+    @group_post = GroupPost.find(params[:id])
+  end
+
+  def update
+    @group_post = GroupPost.find(params[:id])
+    if @group_post.update(group_post_params)
+      redirect_to group_group_post_path(@group_post.group_id, @group_post.id)
+    else
+      render :edit
+    end
+  end
+
   private
+
     def group_post_params
       params.require(:group_post).permit(:title, :body)
     end
