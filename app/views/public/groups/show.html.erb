@@ -1,6 +1,6 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-8 offset-md-1'>
+    <div class='col-md-10 offset-md-1'>
       <%= render 'layouts/notice', object: @group %>
       <h2><%= @group.name %></h2>
       <table class='table', style="color: ghostwhite">
@@ -8,6 +8,7 @@
           <tr>
             <th></th>
             <th>グループ名</th>
+            <th>オーナー</th>
             <th>紹介文</th>
             <th>メンバー</th>
             <th colspan="3"></th>
@@ -16,6 +17,7 @@
         <tr>
           <td><%= image_tag @group.get_group_image, size: '50x50' %></td>
           <td><%= @group.name %></td>
+          <td><%= @group.owner.name %></td>
           <td><%= @group.introduction %></td>
           <td>
             <% @group.users.each do |user| %>
@@ -39,6 +41,7 @@
       <% if @group.is_owned_by?(current_user) || @group.includesUser?(current_user) %>
         <p class="text-center"><%= link_to "グループ投稿へ", group_group_posts_path(@group) %></p>
       <% end %>
+      <p class="text-center"><%= link_to "一覧へ戻る", groups_path %></p>
     </div>
   </div>
 </div> 
