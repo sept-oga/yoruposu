@@ -33,10 +33,17 @@ class Public::GroupPostsController < ApplicationController
   def update
     @group_post = GroupPost.find(params[:id])
     if @group_post.update(group_post_params)
-      redirect_to group_group_post_path(@group_post.group_id, @group_post.id)
+      redirect_to group_group_post_path(@group_post.group_id, @group_post)
     else
       render :edit
     end
+  end
+
+  def destroy
+    group_post = GroupPost.find(params[:id])
+    user = group_post.user
+    group_post.destroy
+    redirect_to group_group_posts_path
   end
 
   private

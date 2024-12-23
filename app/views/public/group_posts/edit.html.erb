@@ -4,7 +4,7 @@
       <h2>投稿編集</h2>
       <%= render 'layouts/errors', object: @group_post %>
 
-      <%= form_with model: @group_post, url: group_group_posts_path do |f| %>
+      <%= form_with model: @group_post, url: group_group_post_path(@group_post.group_id, @group_post) do |f| %>
         <div class="form-group">
           <label for="post_title">タイトル（50文字以内）</label>
           <%= f.text_field :title, class: "form-control post_title" %>

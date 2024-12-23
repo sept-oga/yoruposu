@@ -39,7 +39,8 @@
       </table>
 
       <% if @group.is_owned_by?(current_user) || @group.includesUser?(current_user) %>
-        <p class="text-center"><%= link_to "グループ投稿へ", group_group_posts_path(@group) %></p>
+        <p><%= link_to "グループ一覧投稿へ", group_group_posts_path(@group) %></p>
+        <p><%= link_to "グループ新規投稿をする", new_group_group_post_path(@group) %></p>
       <% end %>
       <p class="text-center"><%= link_to "一覧へ戻る", groups_path %></p>
     </div>

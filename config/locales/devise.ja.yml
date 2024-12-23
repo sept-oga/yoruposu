@@ -32,10 +32,14 @@ ja:
       group:
         name: グループ名
         introduce: 紹介文
+      group_post:
+        title: タイトル
+        body: 本文
     models:
       user: ユーザー
       post: 投稿
       group: グループ
+      group_post: グループ投稿
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
