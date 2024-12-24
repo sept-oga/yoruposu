@@ -2,7 +2,7 @@ class Public::GroupPostsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @group = Group.find_by(params[:group_id])
+    @group = Group.find(params[:group_id])
     @group_post = GroupPost.new
   end
   
@@ -18,6 +18,7 @@ class Public::GroupPostsController < ApplicationController
   end
 
   def index
+    @group = Group.find(params[:group_id])
     @group_posts = GroupPost.page(params[:page])
   end
 
@@ -48,7 +49,7 @@ class Public::GroupPostsController < ApplicationController
 
   private
 
-    def group_post_params
-      params.require(:group_post).permit(:title, :body)
-    end
+  def group_post_params
+    params.require(:group_post).permit(:title, :body)
+  end
 end

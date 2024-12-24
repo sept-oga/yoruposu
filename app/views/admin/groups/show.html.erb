@@ -25,7 +25,8 @@
             <%= link_to "削除", admin_group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-secondary" %>
           </td>
         </tr>
-      </table>
+      </table>  
+      <p class="text-center"><%= link_to "グループ一覧投稿へ", admin_group_group_posts_path(@group) %></p>
       <p class="text-center"><%= link_to "グループ一覧へ戻る", admin_groups_path %></p>
     </div>
   </div>

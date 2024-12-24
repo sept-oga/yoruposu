@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resources :groups, only: [:index, :show, :destroy] do
       resource :group_members, only: [:destroy]
+      resources :group_posts, only: [:index, :show, :destroy]
     end
     get '/search', to: 'searches#search'
   end
