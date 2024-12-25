@@ -2,7 +2,7 @@
 
 <!-- 投稿詳細画面 -->
 <div>
-  <%= image_tag @group_post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
+  <%= image_tag @group_post.get_gp_image, width: 720, height: 480, style: "object-fit: contin;" %>
   <p><b><%= @group_post.title %></b></p>
   <p><%= @group_post.body %></p>
   <%= link_to user_path(@user) do %>
@@ -10,12 +10,14 @@
     <%= @user.name %>
   <% end %>
   <p>投稿日：<%= @group_post.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @group_post.user == current_user %>
-    <div class="btn-group pb-3" role="group">
+  <div class="btn-group pb-3" role="group">
+    <% if @group_post.user == current_user %>
       <%= link_to "投稿を編集", edit_group_group_post_path(@group_post.group_id, @group_post), class: "btn btn-sm btn-outline-primary" %>
+    <% end %>
+    <% if @group_post.user == current_user || @group_post.group.is_owned_by?(current_user) %>
       <%= link_to "投稿を削除", group_group_post_path(@group_post.group_id, @group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
   <p class="text-center"><%= link_to "投稿一覧へ戻る", group_group_posts_path(@group_post.group.id) %></p>

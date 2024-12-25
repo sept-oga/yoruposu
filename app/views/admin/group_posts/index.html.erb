@@ -4,10 +4,11 @@
   <!-- post(全体投稿)と共通テンプレートにする -->
   <div>
     <%= link_to admin_group_group_post_path(group_post.group_id, group_post.id) do %>
-      <%= image_tag group_post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
+      <%= image_tag group_post.get_gp_image, width: 240, height: 160, style: "object-fit: contain;" %>
     <% end %>
     <p><b><%= group_post.title %></b></p>
     <p><%= group_post.body %></p>
+    <%= link_to "削除", admin_group_group_post_path(group_post.group_id, group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
   </div>
 <% end %>
 

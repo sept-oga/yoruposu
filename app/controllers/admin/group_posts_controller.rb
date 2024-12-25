@@ -16,12 +16,12 @@ class Admin::GroupPostsController < ApplicationController
     group_post = GroupPost.find(params[:id])
     user = group_post.user
     group_post.destroy
-    redirect_to group_group_posts_path
+    redirect_to admin_group_group_posts_path
   end
 
   private
 
   def group_post_params
-    params.require(:group_post).permit(:title, :body)
+    params.require(:group_post).permit(:title, :body, :gp_image)
   end
 end

@@ -2,7 +2,7 @@
 
 <!-- 投稿詳細画面 -->
 <div>
-  <%= image_tag @group_post.get_image, width: 720, height: 480, style: "object-fit: contin;" %>
+  <%= image_tag @group_post.get_gp_image, width: 720, height: 480, style: "object-fit: contin;" %>
   <p><b><%= @group_post.title %></b></p>
   <p><%= @group_post.body %></p>
   <%= link_to admin_user_path(@user) do %>

@@ -50,6 +50,7 @@ class Public::GroupPostsController < ApplicationController
   private
 
   def group_post_params
-    params.require(:group_post).permit(:title, :body)
+    params.require(:group_post).permit(:title, :body, :gp_image)
   end
+
 end
