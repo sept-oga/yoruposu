@@ -1,15 +1,20 @@
-<% posts.each do |post| %>
-  <div>
-    <%= link_to post_path(post.id) do %>
-      <%= image_tag post.get_image, width: 240, height: 160, style: "object-fit: contain;" %>
-    <% end %>
-    <br>
-    <%= link_to user_path(post.user) do %>
-      <%= image_tag post.user.get_profile_image %>
-      <%= post.user.name %>
-    <% end %>
-    <p><b><%= post.title %></b></p>
-    <p><%= post.body %></p>
-    <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
-  </div>
-<% end %>
+<div class="row row-cols-2 row-cols-md-3 g-4">
+  <% posts.each do |post| %>
+    <div class="col mb-3">
+    <div class="card bg-dark h-100">
+      <%= link_to post_path(post.id) do %>
+        <%= image_tag post.get_image, class: "img-fluid object-fit-cover card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <h4><%= post.title %></h4>
+        <%= link_to user_path(post.user) do %>
+          <%= image_tag post.user.get_profile_image, width: 50, height: 50, class: "object-fit-cover rounded-circle my-2" %>
+          <%= post.user.name %>
+        <% end %>
+        <p><%= post.body %></p>
+        <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,5 @@
 class Public::GroupPostsController < ApplicationController
+  before_action :is_user_included
   before_action :authenticate_user!
 
   def new
@@ -51,6 +52,14 @@ class Public::GroupPostsController < ApplicationController
 
   def group_post_params
     params.require(:group_post).permit(:title, :body, :gp_image)
+  end
+
+  def is_user_included
+    group = Group.find(params[:group_id])
+    unless group.includesUser?(current_user)
+      redirect_to group_path(group)
+      flash[:alert] = "このグループにアクセスする権限がありません"
+    end
   end
 
 end
