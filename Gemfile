@@ -71,3 +71,5 @@ gem 'kaminari','~> 1.2.1'
 gem 'bootstrap4-kaminari-views'
 
 gem 'rails-i18n'
+
+gem 'dotenv-rails'
