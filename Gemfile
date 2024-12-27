@@ -73,3 +73,4 @@ gem 'bootstrap4-kaminari-views'
 gem 'rails-i18n'
 
 gem 'dotenv-rails'
+gem 'geocoder'
