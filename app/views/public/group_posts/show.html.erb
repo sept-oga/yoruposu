@@ -4,12 +4,20 @@
 <div>
   <%= image_tag @group_post.get_gp_image, width: 720, height: 480, style: "object-fit: contin;" %>
   <p><b><%= @group_post.title %></b></p>
+  <p>
+    <span><i class="fa-solid fa-location-dot"></i> <%= @group_post.address %></span>
+  </p>
   <p><%= @group_post.body %></p>
+
+  <!-- 投稿ユーザー情報 -->
   <%= link_to user_path(@user) do %>
     <%= image_tag @user.get_profile_image %>
     <%= @user.name %>
   <% end %>
+  <!-- 投稿日 -->
   <p>投稿日：<%= @group_post.created_at.strftime('%Y/%m/%d') %></p>
+
+  <!-- 編集・削除ボタン -->
   <div class="btn-group pb-3" role="group">
     <% if @group_post.user == current_user %>
       <%= link_to "投稿を編集", edit_group_group_post_path(@group_post.group_id, @group_post), class: "btn btn-sm btn-outline-primary" %>
