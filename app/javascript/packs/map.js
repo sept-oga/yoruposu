@@ -13,28 +13,26 @@ async function initMap() {
   // 地図の中心と倍率は公式から変更しています。
   map = new Map(document.getElementById("map"), {
     center: { lat: 35.681236, lng: 139.767125 }, 
-    zoom: 15,
+    zoom: 9,
     mapId: "DEMO_MAP_ID",
     mapTypeControl: false
   });
 
   try {
-    const response = await fetch("/group_posts.json");
+    const response = await fetch(window.location.pathname+".json");
     if (!response.ok) throw new Error('Network response was not ok');
 
     const { data: { items } } = await response.json();
     if (!Array.isArray(items)) throw new Error("Items is not an array");
-
     items.forEach( item => {
       const latitude = item.latitude;
       const longitude = item.longitude;
       const title = item.title;
-
+    
       const marker = new google.maps.marker.AdvancedMarkerElement ({
         position: { lat: latitude, lng: longitude },
-        map,
-        title: title,
-        // 他の任意のオプションもここに追加可能
+        map: map,
+        title: title
       });
     });
   } catch (error) {

@@ -16,7 +16,11 @@
     <% end %>
   </div>
 <% end %>
+<div class="container">
+  <div id="map"></div>
+</div>
 
+<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
 <p class="text-center">
   <%= link_to "新規投稿", new_group_group_post_path(@group), data: {turbolinks: "false"} %>
 </p>
