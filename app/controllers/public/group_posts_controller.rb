@@ -51,12 +51,12 @@ class Public::GroupPostsController < ApplicationController
   private
 
   def group_post_params
-    params.require(:group_post).permit(:title, :body, :gp_image)
+    params.require(:group_post).permit(:title, :body, :gp_image, :address)
   end
 
   def is_user_included
     group = Group.find(params[:group_id])
-    unless group.includesUser?(current_user)
+    unless group.includesUser?(current_user) || group.is_owned_by?(current_user)
       redirect_to group_path(group)
       flash[:alert] = "このグループにアクセスする権限がありません"
     end
