@@ -8,7 +8,7 @@
       <%= form_with model: @group_post, url: group_group_posts_path do |f| %>
         <div class="form-group">
           <%= f.label :画像 %>
-          <%= f.file_field :image, class: "form-control-file", accept: 'image/*' %>
+          <%= f.file_field :gp-image, class: "form-control-file", accept: 'image/*' %>
         </div>
 
         <div class="form-group">

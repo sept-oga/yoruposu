@@ -6,6 +6,11 @@
 
       <%= form_with model: @group_post, url: group_group_post_path(@group_post.group_id, @group_post) do |f| %>
         <div class="form-group">
+          <%= f.label :画像 %>
+          <%= f.file_field :gp_image, class: "form-control-file", accept: 'image/*' %>
+        </div>
+
+        <div class="form-group">
           <label for="post_title">タイトル（50文字以内）</label>
           <%= f.text_field :title, class: "form-control post_title" %>
         </div>
@@ -16,16 +21,24 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :画像 %>
-          <%= f.file_field :gp_image, class: "form-control-file", accept: 'image/*' %>
+          <label for="post_address1">郵便番号</label>
+          <%= text_field_tag :zipcode, nil, class: "form-control post_address1" %>
+        </div>
+
+        <div class="form-group">
+          <label for="post_address2">住所</label>
+          <%= f.text_field :address, class: "form-control post_address2" %>
         </div>
 
         <div class="form-group">
           <input type="submit" value="変更" class="btn btn-primary">
         </div>
+
         <%= link_to "投稿を削除", group_group_post_path(@group_post.group_id, @group_post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       <% end %>
       <p class="text-center"><%= link_to "投稿へ戻る", group_group_post_path(@group_post.group_id, @group_post) %></p>
     </div> 
   </div>
 </div>
+
+<%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>

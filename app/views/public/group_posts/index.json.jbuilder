@@ -6,7 +6,7 @@ json.data do
         json.name group_post.user.name
         json.image url_for(group_post.user.profile_image)
       end
-      json.image url_for(group_post.gp_image)
+      json.gp_image url_for(group_post.gp_image)
       json.title group_post.title
       json.body group_post.body
       json.address group_post.address

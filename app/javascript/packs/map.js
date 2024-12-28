@@ -10,7 +10,6 @@ async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
   const {AdvancedMarkerElement} = await google.maps.importLibrary("marker")
 
-  // 地図の中心と倍率は公式から変更しています。
   map = new Map(document.getElementById("map"), {
     center: { lat: 35.681236, lng: 139.767125 }, 
     zoom: 9,
@@ -28,11 +27,40 @@ async function initMap() {
       const latitude = item.latitude;
       const longitude = item.longitude;
       const title = item.title;
+      const postImage = item.gp_image;
+      const address = item.address;
+      const body = item.body;
+
     
       const marker = new google.maps.marker.AdvancedMarkerElement ({
         position: { lat: latitude, lng: longitude },
         map: map,
         title: title
+      });
+
+      const contentString = `
+        <div class="information container p-0 text-dark">
+          <div class="mb-3">
+            <img class="thumbnail" src="${postImage}" loading="lazy"  width="120" height="70">
+          </div>
+          <div>
+            <h1 class="h5 font-weight-bold">${title}</h1>
+            <p class="text-muted">${address}</p>
+            <p>${body}</p>
+          </div>
+        </div>
+      `;
+      
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        ariaLabel: title,
+      });
+      
+      marker.addListener("click", () => {
+          infowindow.open({
+          anchor: marker,
+          map: map,
+        })
       });
     });
   } catch (error) {
