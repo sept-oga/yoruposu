@@ -20,7 +20,14 @@ class Public::GroupPostsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @group_posts = GroupPost.page(params[:page])
+    respond_to do |format|
+      format.html do
+        @group_posts = GroupPost.page(params[:page])
+      end
+      format.json do
+        @group_posts = GroupPost.all
+      end
+    end
   end
 
   def show

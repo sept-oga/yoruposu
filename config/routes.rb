@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     end
     resources :groups, only: [:index, :show, :destroy] do
       resource :group_members, only: [:destroy]
-      resources :group_posts, only: [:index, :show, :destroy]
-      resource :map, only: [:show]
+      resources :group_posts, only: [:index, :show, :destroy] do 
+        resource :map, only: [:show]
+      end
     end
     get '/search', to: 'searches#search'
   end
@@ -31,9 +32,11 @@ Rails.application.routes.draw do
     resources :groups, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
       resource :permits, only: [:create, :destroy]
       resource :group_members, only: [:create, :destroy]
-      resources :group_posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-      resource :map, only: [:show]
+      resources :group_posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+        resource :map, only: [:show]
+      end
     end
+    
     get "groups/:id/permits" => "groups#permits", as: :permits
   end
   
