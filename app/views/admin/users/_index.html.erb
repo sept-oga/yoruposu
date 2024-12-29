@@ -1,6 +1,6 @@
 <% users.each do |user| %>
   <tr>
-    <td><%= link_to user.name, user_path(user) %></td>
+    <td><%= link_to user.name, admin_user_path(user) %></td>
     <td><%= image_tag user.get_profile_image %></td>
     <td><%= user.introduction %></td>
   </tr>
