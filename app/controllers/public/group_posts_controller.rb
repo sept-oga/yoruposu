@@ -20,7 +20,14 @@ class Public::GroupPostsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @group_posts = GroupPost.page(params[:page])
+    respond_to do |format|
+      format.html do
+        @group_posts = @group.group_posts.page(params[:page])
+      end
+      format.json do
+        @group_posts = @group.group_posts
+      end
+    end
   end
 
   def show
@@ -51,12 +58,12 @@ class Public::GroupPostsController < ApplicationController
   private
 
   def group_post_params
-    params.require(:group_post).permit(:title, :body, :gp_image)
+    params.require(:group_post).permit(:title, :body, :gp_image, :address)
   end
 
   def is_user_included
     group = Group.find(params[:group_id])
-    unless group.includesUser?(current_user)
+    unless group.includesUser?(current_user) || group.is_owned_by?(current_user)
       redirect_to group_path(group)
       flash[:alert] = "このグループにアクセスする権限がありません"
     end

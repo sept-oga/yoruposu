@@ -5,6 +5,10 @@ class GroupPost < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true
+  validates :address, presence: true
+
+  geocoded_by :address
+  after_validation :geocode
 
   def get_gp_image
     unless gp_image.attached?

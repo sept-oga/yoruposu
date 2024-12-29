@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resource :group_members, only: [:create, :destroy]
       resources :group_posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     end
+    
     get "groups/:id/permits" => "groups#permits", as: :permits
   end
   
