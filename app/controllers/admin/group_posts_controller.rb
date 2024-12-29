@@ -6,10 +6,10 @@ class Admin::GroupPostsController < ApplicationController
     @group = Group.find(params[:group_id])
     respond_to do |format|
       format.html do
-        @group_posts = GroupPost.page(params[:page])
+        @group_posts = @group.group_posts.page(params[:page])
       end
       format.json do
-        @group_posts = GroupPost.all
+        @group_posts = @group.group_posts
       end
     end
   end
@@ -29,6 +29,6 @@ class Admin::GroupPostsController < ApplicationController
   private
 
   def group_post_params
-    params.require(:group_post).permit(:title, :body, :gp_image)
+    params.require(:group_post).permit(:title, :body, :gp_image, :address)
   end
 end

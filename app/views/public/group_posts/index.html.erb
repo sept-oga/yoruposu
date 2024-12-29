@@ -1,7 +1,6 @@
 <h2><%= @group.name %></h2>
 <h2>グループ投稿一覧</h2>
 <% @group.group_posts.each do |group_post| %>
-  <!-- 共通テンプレートにする -->
   <div>
     <%= link_to group_group_post_path(group_post.group_id, group_post.id) do %>
       <%= image_tag group_post.get_gp_image, width: 240, height: 160, style: "object-fit: contain;" %>
@@ -22,6 +21,7 @@
 </div>
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
+
 <p class="text-center">
   <%= link_to "新規投稿", new_group_group_post_path(@group), data: {turbolinks: "false"} %>
 </p>
