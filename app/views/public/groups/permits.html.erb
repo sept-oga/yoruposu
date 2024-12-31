@@ -34,7 +34,17 @@
     <h4 class="text-center">メンバー一覧</h4>
     <div class="row mt-5">
       <div class="col-11 col-md-12 mx-auto">
-        <%= render 'public/users/index', users: @users %>
+        <% @users.each do |user| %>
+          <table class="mb-3">
+            <tr>
+              <td><%= image_tag user.get_profile_image, class: "object-fit-cover rounded-circle" %></td>
+              <td><%= link_to user.name, user_path(user) %></td>
+              <td><%= user.introduction %></td>
+              <td><%= user.introduction %></td>
+              <td><%= link_to '脱退', group_group_members_path(@group), method: :delete, "data-confirm" => "グループを脱退させますか？", class: "btn btn-sm btn-secondary" %></td>
+            </tr>
+          </table>
+        <% end %>
       </div>
     </div>
   </div>
