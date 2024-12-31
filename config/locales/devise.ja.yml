@@ -35,6 +35,7 @@ ja:
       group_post:
         title: タイトル
         body: 本文
+        address: 住所
       admin:
         email: メールアドレス
     models:

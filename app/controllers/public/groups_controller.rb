@@ -41,6 +41,7 @@ class Public::GroupsController < ApplicationController
 
   def permits
     @group = Group.find(params[:id])
+    @users = @group.users
     @permits = @group.permits.page(params[:page])
   end
 

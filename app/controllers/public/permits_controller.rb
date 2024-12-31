@@ -11,6 +11,6 @@ class Public::PermitsController < ApplicationController
   def destroy
     permit = current_user.permits.find_by(group_id: params[:group_id])
     permit.destroy
-    redirect_to request.referer, alert: "グループへの参加申請を取消しました"
+    redirect_to request.referer, notice: "グループへの参加申請を取消しました"
   end
 end

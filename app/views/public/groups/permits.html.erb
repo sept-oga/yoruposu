@@ -32,9 +32,11 @@
     <div class="mx-auto mt-5"><%= paginate @permits %></div>
 
     <h4 class="text-center">メンバー一覧</h4>
-      <% @group.users.each do |user| %>
-        <li style="list-style: none;"><%= user.name %></li>
-      <% end %>
+    <div class="row mt-5">
+      <div class="col-11 col-md-12 mx-auto">
+        <%= render 'public/users/index', users: @users %>
+      </div>
+    </div>
   </div>
 
   <div class="row mt-5">
