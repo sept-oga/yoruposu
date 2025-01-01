@@ -7,7 +7,6 @@
         <thead>
           <tr>
             <th></th>
-            <th>グループ名</th>
             <th>オーナー</th>
             <th>紹介文</th>
             <th></th>
@@ -16,7 +15,6 @@
         </thead>
         <tr>
           <td><%= image_tag @group.get_group_image, size: '50x50' %></td>
-          <td><%= @group.name %></td>
           <td><%= @group.owner.name %></td>
           <td><%= @group.introduction %></td>
           <td>

@@ -38,6 +38,8 @@ ja:
         address: 住所
       admin:
         email: メールアドレス
+        password: パスワード
+        remember_me: ログインを記憶する
     models:
       user: ユーザー
       post: 投稿
