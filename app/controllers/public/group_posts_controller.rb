@@ -65,7 +65,7 @@ class Public::GroupPostsController < ApplicationController
     group = Group.find(params[:group_id])
     unless group.includesUser?(current_user) || group.is_owned_by?(current_user)
       redirect_to group_path(group)
-      flash[:alert] = "このグループにアクセスする権限がありません"
+      flash[:alert] = "このグループにアクセスする権限がありません。"
     end
   end
 

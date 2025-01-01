@@ -39,6 +39,12 @@ class Public::GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    group = Group.find(params[:id])
+    group.destroy
+    redirect_to groups_path
+  end
+
   def permits
     @group = Group.find(params[:id])
     @users = @group.users
@@ -54,7 +60,7 @@ class Public::GroupsController < ApplicationController
   def ensure_correct_user
     @group = Group.find(params[:id])
     unless @group.owner_id == current_user.id
-      redirect_to group_path(@group), alert: "グループオーナーのみ編集が可能です"
+      redirect_to group_path(@group), alert: "グループオーナーのみ編集が可能です。"
     end
   end
 

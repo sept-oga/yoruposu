@@ -18,7 +18,7 @@
               <tr>
                 <td><%= link_to permit.user.name, user_path(permit.user.id), class: "text-dark" %></td>
                 <td class="text-right">
-                  <%= link_to '加入許可', group_group_members_path(@group, permit_id: permit.id), method: :post, class: "btn btn-sm btn-success" %>
+                  <%= link_to '加入許可', group_group_members_path(@group, permit_id: permit.id), method: :post, class: "btn btn-sm btn-primary" %>
                 </td>
               </tr>
             <% end %>
@@ -41,7 +41,6 @@
               <td><%= link_to user.name, user_path(user) %></td>
               <td><%= user.introduction %></td>
               <td><%= user.introduction %></td>
-              <td><%= link_to '脱退', group_group_members_path(@group), method: :delete, "data-confirm" => "グループを脱退させますか？", class: "btn btn-sm btn-secondary" %></td>
             </tr>
           </table>
         <% end %>
