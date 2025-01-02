@@ -17,7 +17,9 @@
         <td><%= group.owner.name %></td>
         <td><%= group.group_members.count %></td>
         <% if group.is_owned_by?(current_user) %>
-          <td><%= link_to '承認待ち一覧', permits_path(group.id), class: "group_#{group.id} btn btn-sm btn-primary" %></td>
+          <td><%= link_to '承認待ち・メンバー', permits_path(group.id), class: "group_#{group.id} btn btn-sm btn-primary", style: "width: 6rem;" %></td>
+        <% else %>
+          <td></td>
         <% end %>
       </tr>
     <% end %>
