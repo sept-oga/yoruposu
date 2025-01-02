@@ -1,20 +1,6 @@
 <h2><%= link_to @group.name, admin_group_path(@group) %></h2>
 <h2>投稿一覧</h2>
-<% @group.group_posts.each do |group_post| %>
-  <div>
-    <%= link_to admin_group_group_post_path(group_post.group_id, group_post.id) do %>
-      <%= image_tag group_post.get_gp_image, width: 240, height: 160, style: "object-fit: contain;" %>
-    <% end %>
-    <p><b><%= group_post.title %></b></p>
-    <p>
-      <span><i class="fa-solid fa-location-dot"></i> <%= group_post.address %></span>
-    </p>
-    <p><%= group_post.body %></p>
-    <div class="pb-3">
-      <%= link_to "削除", admin_group_group_post_path(group_post.group_id, group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
-    </div>
-  </div>
-<% end %>
+<%= render 'index', group_posts: @group_posts %>
 
 <div class="container">
   <div id="map"></div>
