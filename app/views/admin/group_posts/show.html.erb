@@ -2,8 +2,9 @@
 
 <!-- 投稿詳細画面 -->
 <div>
+  <p><%= link_to "<< 投稿一覧へ戻る", admin_group_group_posts_path(@group_post.group.id) %></p>
+  <h3><%= @group_post.title %></h3>
   <%= image_tag @group_post.get_gp_image, width: 720, height: 480, style: "object-fit: contin;" %>
-  <p><b><%= @group_post.title %></b></p>
   <p>
     <span><i class="fa-solid fa-location-dot"></i> <%= @group_post.address %></span>
   </p>
@@ -23,5 +24,3 @@
     <%= link_to "削除", admin_group_group_post_path(@group_post.group_id, @group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
   </div>
 </div>
-
-<p><%= link_to "<< 投稿一覧へ戻る", admin_group_group_posts_path(@group_post.group.id) %></p>

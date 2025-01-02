@@ -2,7 +2,7 @@ class Public::SearchesController < ApplicationController
   before_action :authenticate_user!
 
 	def search
-		# model => user か post
+		# model => user か post か group
 		@model = params[:model]
 		# content => 検索キーワード
 		@content = params[:content]

@@ -1,5 +1,5 @@
 <h2><%= link_to @group.name, admin_group_path(@group) %></h2>
-<h2>グループ投稿一覧</h2>
+<h2>投稿一覧</h2>
 <% @group.group_posts.each do |group_post| %>
   <div>
     <%= link_to admin_group_group_post_path(group_post.group_id, group_post.id) do %>
@@ -22,4 +22,4 @@
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
 
-<%= paginate @group_posts %>
+<%= paginate @group_posts, theme: 'twitter-bootstrap-4' %>
