@@ -6,7 +6,7 @@ class Public::CommentsController < ApplicationController
     if body.save
       redirect_to post_path(post)
     else
-      flash[:notice] = "コメントを入力してください。"
+      flash[:alert] = "コメントを入力してください。"
       redirect_to post_path(post)
     end
   end

@@ -21,7 +21,7 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/javascript/images/no-image.jpeg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    profile_image.variant(resize_to_limit: [100, 100]).processed
+    profile_image.variant(resize_to_limit: [200, 200]).processed
   end
 
   # 検索

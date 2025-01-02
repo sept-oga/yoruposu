@@ -10,6 +10,7 @@ class Admin::GroupsController < ApplicationController
   def show
     @post = Post.new
     @group = Group.find(params[:id])
+    @users = @group.users
   end
 
   def destroy

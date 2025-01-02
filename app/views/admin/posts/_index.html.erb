@@ -2,17 +2,17 @@
   <% posts.each do |post| %>
     <div class="col mb-3">
     <div class="card bg-dark h-100">
-      <%= link_to post_path(post.id) do %>
+      <%= link_to admin_post_path(post.id) do %>
         <%= image_tag post.get_image, class: "img-fluid object-fit-cover card-img-top" %>
       <% end %>
       <div class="card-body">
         <h4><%= post.title %></h4>
-        <%= link_to user_path(post.user) do %>
+        <%= link_to admin_user_path(post.user) do %>
           <%= image_tag post.user.get_profile_image, width: 50, height: 50, class: "object-fit-cover rounded-circle my-2" %>
           <%= post.user.name %>
         <% end %>
         <p><%= post.body %></p>
-        <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+        <p><%= link_to "#{post.comments.count} コメント", admin_post_path(post.id) %></p>
       </div>
     </div>
     </div>

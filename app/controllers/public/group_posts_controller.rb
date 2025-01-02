@@ -1,5 +1,6 @@
 class Public::GroupPostsController < ApplicationController
   before_action :is_user_included
+  before_action :is_matching_login_user, only: [:edit, :update]
   before_action :authenticate_user!
 
   def new
@@ -12,7 +13,7 @@ class Public::GroupPostsController < ApplicationController
     @group_post.group_id = params[:group_id]
     @group_post.user_id = current_user.id
     if @group_post.save
-      redirect_to group_group_posts_path
+      redirect_to group_group_post_path(@group_post.group_id, @group_post)
     else
       render :new
     end
@@ -65,7 +66,16 @@ class Public::GroupPostsController < ApplicationController
     group = Group.find(params[:group_id])
     unless group.includesUser?(current_user) || group.is_owned_by?(current_user)
       redirect_to group_path(group)
-      flash[:alert] = "このグループにアクセスする権限がありません"
+      flash[:alert] = "このグループにアクセスする権限がありません。"
+    end
+  end
+
+  def is_matching_login_user
+    group_post = GroupPost.find(params[:id])
+    user = group_post.user
+    unless user.id == current_user.id
+      redirect_to group_group_post_path(group_post.group_id, group_post)
+      flash[:alert] = "投稿者のみが編集できます。"
     end
   end
 

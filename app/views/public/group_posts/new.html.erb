@@ -4,11 +4,10 @@
       <h2>新規投稿</h2>
       <%= render 'layouts/errors', object: @group_post %>
 
-      <!-- postと共通化できる -->
       <%= form_with model: @group_post, url: group_group_posts_path do |f| %>
         <div class="form-group">
           <%= f.label :画像 %>
-          <%= f.file_field :gp-image, class: "form-control-file", accept: 'image/*' %>
+          <%= f.file_field :gp_image, class: "form-control-file", accept: 'image/*' %>
         </div>
 
         <div class="form-group">

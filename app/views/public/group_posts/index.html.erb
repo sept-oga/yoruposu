@@ -1,20 +1,7 @@
-<h2><%= @group.name %></h2>
-<h2>グループ投稿一覧</h2>
-<% @group.group_posts.each do |group_post| %>
-  <div>
-    <%= link_to group_group_post_path(group_post.group_id, group_post.id) do %>
-      <%= image_tag group_post.get_gp_image, width: 240, height: 160, style: "object-fit: contain;" %>
-    <% end %>
-    <p><b><%= group_post.title %></b></p>
-    <p>
-      <span><i class="fa-solid fa-location-dot"></i> <%= group_post.address %></span>
-    </p>
-    <p><%= group_post.body %></p>
-    <% if group_post.user == current_user || group_post.group.is_owned_by?(current_user) %>
-      <%= link_to "削除", group_group_post_path(group_post.group_id, group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
-    <% end %>
-  </div>
-<% end %>
+<%= render 'layouts/notice', object: @group_posts %>
+<h2><%= link_to @group.name, group_path(@group) %></h2>
+<h2>投稿一覧</h2>
+<%= render 'index', group_posts: @group_posts %>
 
 <div class="container">
   <div id="map"></div>
@@ -26,4 +13,4 @@
   <%= link_to "新規投稿", new_group_group_post_path(@group), data: {turbolinks: "false"} %>
 </p>
 
-<%= paginate @group_posts %>
+<%= paginate @group_posts, theme: 'twitter-bootstrap-4' %>
