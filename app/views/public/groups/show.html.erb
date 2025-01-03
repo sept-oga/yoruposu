@@ -1,24 +1,25 @@
 <div class='container px-5 px-sm-0'>
+  <%= render 'layouts/notice', object: @group %>
   <div class='row'>
     <div class='offset-md-1'>
-      <%= render 'layouts/notice', object: @group %>
-
       <p><%= link_to "<< グループ一覧へ戻る", groups_path %></p>
       <h2><%= @group.name %></h2>
       <%= image_tag @group.get_group_image, size: '150x150', class: "mb-3" %><br>
 
-      <% if @group.is_owned_by?(current_user) %>
-        <div class="btn-group pb-3" role="group">
-          <%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-outline-primary" %>
-          <%= link_to '削除', group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
-        </div>
-      <% elsif @group.includesUser?(current_user)%>
-        <%= link_to 'グループを脱退する', group_group_members_path(@group), method: :delete, "data-confirm" => "グループを脱退しますか？", class: "btn btn-sm btn-secondary" %>
-      <% elsif @group.permits.exists?(user_id: current_user.id) %>
-        <%= link_to '申請取消', group_permits_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
-      <% else %>
-        <%= link_to '加入申請', group_permits_path(@group), method: :post, class: "btn btn-sm btn-success" %>
-      <% end %>
+      <div class="pb-3">
+        <% if @group.is_owned_by?(current_user) %>
+          <div class="btn-group" role="group">
+            <%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-outline-primary" %>
+            <%= link_to '削除', group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
+          </div>
+        <% elsif @group.includesUser?(current_user)%>
+          <%= link_to 'グループを脱退する', group_group_members_path(@group), method: :delete, "data-confirm" => "グループを脱退しますか？", class: "btn btn-sm btn-secondary" %>
+        <% elsif @group.permits.exists?(user_id: current_user.id) %>
+          <%= link_to '申請取消', group_permits_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+        <% else %>
+          <%= link_to '加入申請', group_permits_path(@group), method: :post, class: "btn btn-sm btn-primary" %>
+        <% end %>
+      </div>
 
       <div class="pb-3">
         <p><%= @group.introduction %></p>
