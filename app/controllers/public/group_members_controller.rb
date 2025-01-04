@@ -9,6 +9,17 @@ class Public::GroupMembersController < ApplicationController
     redirect_to request.referer
   end
   
+  # def destroy
+  #   group = Group.find(params[:group_id])
+  #   group_member = GroupMember.find(params[:id])
+  #   if current_user == group.owner.id || current_user.id == group_member.user_id
+  #     group_member.destroy
+  #     redirect_to request.referer
+  #   else
+  #     redirect_to group_path(group), alert: '削除する権限がありません'
+  #   end
+  # end
+
   def destroy
     group_member = current_user.group_members.find_by(group_id: params[:group_id])
     group_member.destroy
