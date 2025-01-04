@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+      <p><%= link_to "<< グループ詳細へ戻る", group_path(@group) %></p>
       <h3>グループ編集</h3>
       <%= render 'layouts/errors', object: @group %>
       <%= render 'form', group: @group %>

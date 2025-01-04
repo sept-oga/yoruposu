@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+      <p><%= link_to "<< 投稿へ戻る", group_group_post_path(@group_post.group_id, @group_post) %></p>
       <h2>投稿編集</h2>
       <%= render 'layouts/errors', object: @group_post %>
 
@@ -36,7 +37,6 @@
 
         <%= link_to "投稿を削除", group_group_post_path(@group_post.group_id, @group_post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       <% end %>
-      <p class="text-center"><%= link_to "投稿へ戻る", group_group_post_path(@group_post.group_id, @group_post) %></p>
     </div> 
   </div>
 </div>

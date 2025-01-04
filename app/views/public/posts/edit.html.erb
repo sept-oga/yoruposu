@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+      <p><%= link_to "<< 投稿へ戻る", post_path(@post) %></p>
       <h2>投稿編集</h2>
       <%= render 'layouts/errors', object: @post %>
 
@@ -25,7 +26,6 @@
         </div>
         <%= link_to "投稿を削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       <% end %>
-      <p class="text-center"><%= link_to "投稿へ戻る", posts_path %></p>
     </div> 
   </div>
 </div>

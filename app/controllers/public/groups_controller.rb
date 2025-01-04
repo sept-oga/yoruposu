@@ -60,7 +60,7 @@ class Public::GroupsController < ApplicationController
   def ensure_correct_user
     @group = Group.find(params[:id])
     unless @group.owner_id == current_user.id
-      redirect_to group_path(@group), alert: "グループオーナーのみ編集が可能です。"
+      redirect_to group_path(@group), alert: "グループオーナーのみ遷移できます。"
     end
   end
 
