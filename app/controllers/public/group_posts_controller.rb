@@ -75,7 +75,7 @@ class Public::GroupPostsController < ApplicationController
     user = group_post.user
     unless user.id == current_user.id
       redirect_to group_group_post_path(group_post.group_id, group_post)
-      flash[:alert] = "投稿者のみが編集できます。"
+      flash[:alert] = "投稿者以外は編集できません。"
     end
   end
 

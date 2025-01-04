@@ -1,16 +1,15 @@
 <%= render 'layouts/notice', object: @group_posts %>
+
 <h2><%= link_to @group.name, group_path(@group) %></h2>
-<h2>投稿一覧</h2>
+<h2 class= "pb-2">投稿一覧</h2>
+<p><%= link_to "新規投稿", new_group_group_post_path(@group), data: {turbolinks: "false"}, class: "btn btn-sm btn-outline-primary"%></p>
+
 <%= render 'index', group_posts: @group_posts %>
 
-<div class="container">
+<div class="container pb-3">
   <div id="map"></div>
 </div>
 
-<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
-
-<p class="text-center">
-  <%= link_to "新規投稿", new_group_group_post_path(@group), data: {turbolinks: "false"} %>
-</p>
-
 <%= paginate @group_posts, theme: 'twitter-bootstrap-4' %>
+
+<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
