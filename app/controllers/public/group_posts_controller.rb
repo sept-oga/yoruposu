@@ -22,10 +22,10 @@ class Public::GroupPostsController < ApplicationController
     @group = Group.find(params[:group_id])
     respond_to do |format|
       format.html do
-        @group_posts = @group.posts.page(params[:page])
+        @group_posts = @group.group_posts.page(params[:page])
       end
       format.json do
-        @group_posts = @group.posts
+        @group_posts = @group.group_posts
       end
     end
   end
@@ -42,7 +42,7 @@ class Public::GroupPostsController < ApplicationController
   def update
     @group_post = GroupPost.find(params[:id])
     if @group_post.update(group_post_params)
-      redirect_to group_group_post_path(@group_post.group_id, @group_post)
+      redirect_to group_group_post_path(@group_post.group_member.group_id, @group_post)
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class Public::GroupPostsController < ApplicationController
 
   def destroy
     group_post = GroupPost.find(params[:id])
-    user = group_post.user
+    user = group_post.group_member.user
     group_post.destroy
     redirect_to group_group_posts_path
   end
@@ -71,9 +71,9 @@ class Public::GroupPostsController < ApplicationController
 
   def is_matching_login_user
     group_post = GroupPost.find(params[:id])
-    user = group_post.user
+    user = group_post.group_member.user
     unless user.id == current_user.id
-      redirect_to group_group_post_path(group_post.group_id, group_post)
+      redirect_to group_group_post_path(group_post.group_member.group_id, group_post)
       flash[:alert] = "投稿者以外は編集できません。"
     end
   end
