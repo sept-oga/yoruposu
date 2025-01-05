@@ -1,7 +1,8 @@
 class GroupPost < ApplicationRecord
   has_one_attached :gp_image
-  belongs_to :group
-  belongs_to :user
+  # belongs_to :group
+  # belongs_to :user
+  belongs_to :group_member
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true

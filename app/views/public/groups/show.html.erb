@@ -13,7 +13,7 @@
             <%= link_to '削除', group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
           </div>
         <% elsif @group.includesUser?(current_user)%>
-          <%= link_to 'グループを脱退する', group_group_members_path(@group), method: :delete, "data-confirm" => "グループを脱退しますか？", class: "btn btn-sm btn-secondary" %>
+          <%= link_to 'グループ退会', group_group_members_path(@group), method: :delete, "data-confirm" => "グループを退会しますか？", class: "btn btn-sm btn-secondary" %>
         <% elsif @group.permits.exists?(user_id: current_user.id) %>
           <%= link_to '申請取消', group_permits_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
         <% else %>
