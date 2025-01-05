@@ -9,8 +9,8 @@ class Public::GroupPostsController < ApplicationController
   
   def create
     @group_post = GroupPost.new(group_post_params)
-    @group_menber = GroupMember.find_by(group_id: params[:group_id], user_id: current_user.id)
-    @group_post.group_member_id = @group_menber.id
+    @group_member = GroupMember.find_by(group_id: params[:group_id], user_id: current_user.id)
+    @group_post.group_member_id = @group_member.id
     if @group_post.save
       redirect_to group_group_post_path(params[:group_id], @group_post)
     else

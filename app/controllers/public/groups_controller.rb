@@ -23,6 +23,8 @@ class Public::GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
+    # オーナーもメンバー登録させたい
+    # @group_member = GroupMember.create(user_id: @group.owner_id, group_id: params[:group_id])
     if @group.save
       redirect_to group_path(@group)
     else

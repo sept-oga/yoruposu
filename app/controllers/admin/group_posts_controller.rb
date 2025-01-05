@@ -16,7 +16,7 @@ class Admin::GroupPostsController < ApplicationController
 
   def show
     @group_post = GroupPost.find(params[:id])
-    @user = @group_post.user
+    @user = @group_post.group_member.user
   end
 
   def destroy

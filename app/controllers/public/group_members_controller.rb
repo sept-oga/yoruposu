@@ -10,7 +10,6 @@ class Public::GroupMembersController < ApplicationController
   end
 
   def destroy
-    # group_member = current_user.group_members.find_by(group_id: params[:group_id])
     group_member = GroupMember.find_by(group_id: params[:group_id], user_id: params[:user_id])
     group_member.destroy
     redirect_to request.referer
