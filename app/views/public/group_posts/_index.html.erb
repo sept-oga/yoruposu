@@ -2,7 +2,7 @@
   <% group_posts.each do |group_post| %>
     <div class="col mb-3">
       <div class="card bg-dark h-100">
-        <%= link_to group_group_post_path(group_post.group_id, group_post.id) do %>
+        <%= link_to group_group_post_path(group_post.group_member.group_id, group_post.id) do %>
           <%= image_tag group_post.get_gp_image, class: "img-fluid object-fit-cover card-img-top" %>
         <% end %>
         <div class="card-body">
@@ -10,11 +10,11 @@
           <p><span><i class="fa-solid fa-location-dot"></i> <%= group_post.address %></span></p>
           <p><%= group_post.body %></p>
           <div class="btn-group pb-3" role="group">
-            <% if group_post.user == current_user %>
-              <%= link_to "編集", edit_group_group_post_path(group_post.group_id, group_post), class: "btn btn-sm btn-outline-primary" %>
+            <% if group_post.group_member.user == current_user %>
+              <%= link_to "編集", edit_group_group_post_path(group_post.group_member.group_id, group_post), class: "btn btn-sm btn-outline-primary" %>
             <% end %>
-            <% if group_post.user == current_user || group_post.group.is_owned_by?(current_user) %>
-              <%= link_to "削除", group_group_post_path(group_post.group_id, group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
+            <% if group_post.group_member.user == current_user || group_post.group_member.group.is_owned_by?(current_user) %>
+              <%= link_to "削除", group_group_post_path(group_post.group_member.group_id, group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
             <% end %>
           </div>
         </div>
