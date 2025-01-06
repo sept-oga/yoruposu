@@ -3,7 +3,6 @@
 });
 
 
-// ライブラリの読み込み
 let map;
 
 async function initMap() {

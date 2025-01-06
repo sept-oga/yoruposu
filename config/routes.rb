@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # 管理者の新規登録はスキップ
   devise_for :admin, skip: [:registrations], controllers: {
     sessions: 'admin/sessions'
   }
