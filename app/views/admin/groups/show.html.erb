@@ -30,6 +30,7 @@
                 <td class="p-2"><%= image_tag user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %></td>
                 <td class="p-2"><%= link_to user.name, admin_user_path(user) %></td>
                 <td class="p-2"><%= user.introduction %></td>
+                <td class="p-2"><%= link_to 'グループ退会', admin_group_group_members_path(@group, user_id: user.id), method: :delete, "data-confirm" => "グループを退会させますか？", class: "btn btn-sm btn-secondary" %></td>
               </tr>
             </table>
           <% end %>

@@ -3,8 +3,8 @@ json.data do
     json.array!(@group_posts) do |group_post|
       json.id group_post.id
       json.user do
-        json.name group_post.user.name
-        json.image url_for(group_post.user.profile_image)
+        json.name group_post.group_member.user.name
+        json.image url_for(group_post.group_member.user.profile_image)
       end
       json.gp_image url_for(group_post.gp_image)
       json.title group_post.title
