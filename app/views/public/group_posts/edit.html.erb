@@ -1,11 +1,11 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
-      <p><%= link_to "<< 投稿へ戻る", group_group_post_path(@group_post.group_id, @group_post) %></p>
+      <p><%= link_to "<< 投稿へ戻る", group_group_post_path(@group_post.group_member.group_id, @group_post) %></p>
       <h2>投稿編集</h2>
       <%= render 'layouts/errors', object: @group_post %>
 
-      <%= form_with model: @group_post, url: group_group_post_path(@group_post.group_id, @group_post) do |f| %>
+      <%= form_with model: @group_post, url: group_group_post_path(@group_post.group_member.group_id, @group_post) do |f| %>
         <div class="form-group">
           <%= f.label :画像 %>
           <%= f.file_field :gp_image, class: "form-control-file", accept: 'image/*' %>
@@ -35,7 +35,7 @@
           <input type="submit" value="更新" class="btn btn-primary">
         </div>
 
-        <%= link_to "投稿を削除", group_group_post_path(@group_post.group_id, @group_post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        <%= link_to "投稿を削除", group_group_post_path(@group_post.group_member.group_id, @group_post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       <% end %>
     </div> 
   </div>

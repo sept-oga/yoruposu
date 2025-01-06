@@ -16,12 +16,12 @@ class Admin::GroupPostsController < ApplicationController
 
   def show
     @group_post = GroupPost.find(params[:id])
-    @user = @group_post.user
+    @user = @group_post.group_member.user
   end
 
   def destroy
     group_post = GroupPost.find(params[:id])
-    user = group_post.user
+    user = group_post.group_member.user
     group_post.destroy
     redirect_to admin_group_group_posts_path
   end

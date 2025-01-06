@@ -24,6 +24,7 @@ class Public::GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
+      GroupMember.create(user_id: @group.owner_id, group_id: @group.id)
       redirect_to group_path(@group)
     else
       render 'new'
