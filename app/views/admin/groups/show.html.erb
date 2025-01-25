@@ -1,12 +1,13 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
+<div class='container px-sm-0'>
+  <div class='col-sm-12 col-lg-10 px-sm-0 mx-auto'>
+
     <div class='offset-md-1'>
-
       <p><%= link_to "<< グループ一覧へ戻る", admin_groups_path %></p>
-      <h2><%= @group.name %></h2>
-      <%= image_tag @group.get_group_image, size: '150x150', class: "mb-3" %><br>
 
-      <div class="pb-3">
+      <div class='text-center pb-3'>
+        <h2><%= @group.name %></h2>
+        <%= image_tag @group.get_group_image, size: '200x200', class: "mb-3" %><br>
+      
         <%= link_to '削除', admin_group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
       </div>
 
@@ -42,5 +43,5 @@
       </div>
 
     </div>
-  </div>
+  </div> 
 </div> 
