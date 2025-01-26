@@ -5,6 +5,7 @@ class Public::GroupPostsController < ApplicationController
 
   def new
     @group_post = GroupPost.new
+    @group_member = GroupMember.find_by(group_id: params[:group_id], user_id: current_user.id)
   end
   
   def create

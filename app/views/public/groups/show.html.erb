@@ -3,7 +3,6 @@
 
   <%= render 'layouts/notice', object: @group %>
   
-    <div class='offset-md-1'>
       <p><%= link_to "<< グループ一覧へ戻る", groups_path %></p>
 
       <div class='text-center pb-3'>
@@ -24,23 +23,26 @@
         <% end %>
       </div>
 
-      <div class="pb-3">
-        <p><%= @group.introduction %></p>
-        オーナー：
-        <%= link_to user_path(@group.owner) do %>
-          <%= image_tag @group.owner.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
-          <%= @group.owner.name %>
-        <% end %>
+      <div class="row mt-3">
+        <div class="col-11 col-md-10 mx-auto pb-3">
+          <p><%= @group.introduction %></p>
+          オーナー：
+          <%= link_to user_path(@group.owner) do %>
+            <%= image_tag @group.owner.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
+            <%= @group.owner.name %>
+          <% end %>
+
+          <div class="mt-4">
+            <% if @group.includesUser?(current_user) %>
+              <%= link_to "グループ投稿一覧", group_group_posts_path(@group) %> | 
+              <%= link_to "グループ新規投稿", new_group_group_post_path(@group), data: {turbolinks: "false"} %>
+            <% end %>
+            <% if @group.is_owned_by?(current_user) %>
+              | <%= link_to '承認待ち・メンバー一覧', permits_path(@group.id) %>
+            <% end %>
+          </div>
+        </div>
       </div>
 
-      <% if @group.includesUser?(current_user) %>
-        <%= link_to "グループ投稿一覧", group_group_posts_path(@group) %> | 
-        <%= link_to "グループ新規投稿", new_group_group_post_path(@group), data: {turbolinks: "false"} %> |
-      <% end %>
-      <% if @group.is_owned_by?(current_user) %>
-        <%= link_to '承認待ち・メンバー一覧', permits_path(@group.id) %>
-      <% end %>
-
-    </div>
   </div> 
 </div> 
