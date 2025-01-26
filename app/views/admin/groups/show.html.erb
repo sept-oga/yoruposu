@@ -1,29 +1,32 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <div class='offset-md-1'>
+<div class='container px-sm-0'>
+  <div class='col-sm-12 col-lg-10 px-sm-0 mx-auto'>
 
       <p><%= link_to "<< グループ一覧へ戻る", admin_groups_path %></p>
-      <h2><%= @group.name %></h2>
-      <%= image_tag @group.get_group_image, size: '150x150', class: "mb-3" %><br>
 
-      <div class="pb-3">
+      <div class='text-center pb-3'>
+        <h2><%= @group.name %></h2>
+        <%= image_tag @group.get_group_image, size: '200x200', class: "mb-3" %><br>
+      
         <%= link_to '削除', admin_group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
       </div>
 
-      <div class="pb-3">
-        <p><%= @group.introduction %></p>
-        オーナー：
-        <%= link_to admin_user_path(@group.owner) do %>
-          <%= image_tag @group.owner.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
-          <%= @group.owner.name %>
-        <% end %>
+      <div class="row mt-3">
+        <div class="col-11 col-md-10 mx-auto pb-3">
+          <p><%= @group.introduction %></p>
+          オーナー：
+          <%= link_to admin_user_path(@group.owner) do %>
+            <%= image_tag @group.owner.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
+            <%= @group.owner.name %>
+          <% end %>
+          <div class="mt-4">
+            <%= link_to "グループ投稿一覧", admin_group_group_posts_path(@group) %>
+          </div>
+        </div>
       </div>
 
-      <%= link_to "グループ投稿一覧", admin_group_group_posts_path(@group) %>
-
-      <h4 class="pt-5">メンバー一覧</h4>
+      <h3 class="text-center mt-5">メンバー一覧</h3>
       <div class="row mt-3">
-        <div class="col-11 col-md-12 mx-auto">
+        <div class="col-11 col-md-10 mx-auto">
           <% @users.each do |user| %>
             <table class="pb-3">
               <tr>
@@ -41,6 +44,5 @@
         </div>
       </div>
 
-    </div>
-  </div>
+  </div> 
 </div> 

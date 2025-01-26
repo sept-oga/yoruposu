@@ -1,14 +1,14 @@
 <% if @model == 'user' %>
-	<h3 class="text-center">ユーザー "<%= @content %>" の検索結果</h3>
+	<h2 class="text-center mb-3">ユーザー "<%= @content %>" の検索結果</h2>
   <%= render 'public/users/index', users: @records %>
 <% elsif @model == 'post' %>
-	<h3 class="text-center">投稿 "<%= @content %>" の検索結果</h3>
+	<h2 class="text-center mb-3">投稿 "<%= @content %>" の検索結果</h2>
   <%= render 'public/posts/index', posts: @records %>
 <% elsif @model == 'group' %>
-	<h3 class="text-center">グループ "<%= @content %>" の検索結果</h3>
+	<h2 class="text-center mb-3">グループ "<%= @content %>" の検索結果</h2>
   <%= render 'public/groups/index', groups: @records %>
 <% end %>
 
 <% if @records.count == 0 %>
-  <p class="text-center mt-3">検索結果が見つかりませんでした。</p>
+  <p class="text-center">検索結果が見つかりませんでした。</p>
 <% end %>

@@ -1,56 +1,65 @@
 <%= render 'layouts/notice', object: @group %>
 
 <!-- 投稿詳細画面 -->
-<div>
-  <p><%= link_to "<< 投稿一覧へ戻る", posts_path %></p>
-  <h3><%= @post.title %></h3>
-  <%= image_tag @post.get_image, style: "object-fit: contin;", class: "col-12 col-lg-10 col-xl-8" %>
-  <p><%= @post.body %></p>
-  <%= link_to user_path(@user) do %>
-    <%= image_tag @user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
-    <%= @user.name %>
-  <% end %>
-  <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @post.user == current_user %>
-    <div class="btn-group pb-3" role="group">
-      <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-outline-primary" %>
-      <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
+<div class='container px-sm-0'>
+  <div class='col-sm-12 col-lg-10 px-sm-0 mx-auto'>
+
+    <div>
+      <p><%= link_to "<< 投稿一覧へ戻る", posts_path %></p>
+      <div class='text-center'>
+        <h2><%= @post.title %></h2>
+        <%= image_tag @post.get_image, style: "object-fit: contin;", class: "col-12 px-0 my-3" %>
+      </div>
+      <p><%= @post.body %></p>
+      <div class='mb-3'>
+        <%= link_to user_path(@user) do %>
+          <%= image_tag @user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
+          <%= @user.name %>
+        <% end %>
+      </div>
+      <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+      <% if @post.user == current_user %>
+        <div class="btn-group pb-3" role="group">
+          <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-outline-primary" %>
+          <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
 
-<!-- コメント -->
-<div>
-  <p>コメント：<%= @post.comments.count %>件</p>
-  <% @post.comments.each do |comment| %>
-    <table class="table table-borderless">
-      <tr>
-        <%= link_to user_path(comment.user) do %>
-          <%= image_tag comment.user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
-          <%= comment.user.name %>
-        <% end %>
-      </tr>
-      <tr>
-        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
-      </tr>
-      <tr>
-        <% if comment.user == current_user %>
-          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        <% end %>
-      </tr>
-    </table>
-  <% end %>
-</div>
+    <!-- コメント -->
+    <div>
+      <p>コメント：<%= @post.comments.count %>件</p>
+      <% @post.comments.each do |comment| %>
+        <table class="table table-borderless">
+          <tr>
+            <%= link_to user_path(comment.user) do %>
+              <%= image_tag comment.user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
+              <%= comment.user.name %>
+            <% end %>
+          </tr>
+          <tr>
+            <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
+          </tr>
+          <tr>
+            <% if comment.user == current_user %>
+              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <% end %>
+          </tr>
+        </table>
+      <% end %>
+    </div>
 
-<!-- コメント入力フォーム -->
-<div>
-  <%= form_with model: [@post, @comment] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, rows: '3', placeholder: "コメント", class: "form-control post_body col-9 col-md-6" %>
+    <!-- コメント入力フォーム -->
+    <div>
+      <%= form_with model: [@post, @comment] do |f| %>
+      <div class="form-group">
+        <%= f.text_area :body, rows: '3', placeholder: "コメント", class: "form-control post_body" %>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="送信" class="btn btn-primary">
+      </div>
+      <% end %>
+    </div>
+
   </div>
-  <div class="form-group">
-    <input type="submit" value="送信" class="btn btn-primary">
-  </div>
-  <% end %>
-
 </div>

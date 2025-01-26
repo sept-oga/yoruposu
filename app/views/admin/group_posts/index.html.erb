@@ -1,5 +1,8 @@
-<h2><%= link_to @group.name, admin_group_path(@group) %></h2>
-<h2>投稿一覧</h2>
+<div class="text-center">
+  <h2><%= link_to @group.name, admin_group_path(@group) %></h2>
+  <h2>投稿一覧</h2>
+</div>
+
 <%= render 'index', group_posts: @group_posts %>
 
 <div class="container pb-3">
