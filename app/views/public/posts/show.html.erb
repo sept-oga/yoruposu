@@ -8,6 +8,7 @@
       <p><%= link_to "<< 投稿一覧へ戻る", posts_path %></p>
       <div class='text-center'>
         <h2><%= @post.title %></h2>
+        <%= image_tag @image_url %>
         <%= image_tag @post.get_image, style: "object-fit: contin;", class: "col-12 px-0 my-3" %>
       </div>
       <!-- 本文が改行表示される -->

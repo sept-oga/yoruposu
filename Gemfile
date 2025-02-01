@@ -74,3 +74,5 @@ gem 'rails-i18n'
 
 gem 'dotenv-rails'
 gem 'geocoder'
+
+gem "aws-sdk-s3", require: false
