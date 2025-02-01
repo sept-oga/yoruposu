@@ -20,7 +20,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @image_url = "https://img--files--resize.s3-eu-north-1.amazonaws.com/#{@post.get_image.key}-thumbnail.#{@post.get_image.content_type.split('/').pop}"
+    @image_url = "https://img--files--original.s3-eu-north-1.amazonaws.com/#{@post.get_image.key}-thumbnail.#{@post.get_image.content_type.split('/').pop}"
     @user = @post.user
     @comment = Comment.new
   end
