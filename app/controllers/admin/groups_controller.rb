@@ -4,7 +4,7 @@ class Admin::GroupsController < ApplicationController
 
   def index
     @post = Post.new
-    @groups = Group.all
+    @groups = Group.all.order(created_at: :desc)
   end
 
   def show

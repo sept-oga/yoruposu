@@ -6,7 +6,7 @@ class Admin::GroupPostsController < ApplicationController
     @group = Group.find(params[:group_id])
     respond_to do |format|
       format.html do
-        @group_posts = @group.group_posts.page(params[:page])
+        @group_posts = @group.group_posts.page(params[:page]).order(created_at: :desc)
       end
       format.json do
         @group_posts = @group.group_posts
