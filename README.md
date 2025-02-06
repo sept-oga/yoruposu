@@ -23,11 +23,11 @@
 後ほど作成予定
 ​
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux 2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
-- IDE：Cloud9
+- IDE：Visual Studio Code
 ​
 ## 使用素材
 - フリー写真素材として以下を使用
