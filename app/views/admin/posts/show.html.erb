@@ -8,7 +8,7 @@
     <h2><%= @post.title %></h2>
     <%= image_tag @post.get_image, style: "object-fit: contin;", class: "col-12 px-0 my-3" %>
   </div>
-  <p><%= simple_format(@post.body, sanitize: true)%></p>
+  <%= simple_format(@post.body, sanitize: true)%>
   <div class='mb-3'>
     <%= link_to admin_user_path(@user) do %>
       <%= image_tag @user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>

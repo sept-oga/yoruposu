@@ -25,7 +25,7 @@
 
       <div class="row mt-3">
         <div class="col-11 col-md-10 mx-auto pb-3">
-          <p><%= @group.introduction %></p>
+          <%= simple_format(@group.introduction, sanitize: true)%>
           オーナー：
           <%= link_to user_path(@group.owner) do %>
             <%= image_tag @group.owner.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>

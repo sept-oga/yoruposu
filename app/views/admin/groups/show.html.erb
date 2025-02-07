@@ -12,7 +12,7 @@
 
       <div class="row mt-3">
         <div class="col-11 col-md-10 mx-auto pb-3">
-          <p><%= @group.introduction %></p>
+          <%= simple_format(@group.introduction, sanitize: true)%>
           オーナー：
           <%= link_to admin_user_path(@group.owner) do %>
             <%= image_tag @group.owner.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
@@ -32,7 +32,6 @@
               <tr>
                 <td class="p-2"><%= image_tag user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %></td>
                 <td class="p-2"><%= link_to user.name, admin_user_path(user) %></td>
-                <td class="p-2"><%= user.introduction %></td>
                 <% if @group.is_owned_by?(user) %>
                   <td class="p-2">【オーナー】</td>
                 <% else %>
