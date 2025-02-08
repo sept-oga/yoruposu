@@ -34,7 +34,6 @@ Rails.application.routes.draw do
     
     get "groups/:id/permits" => "groups#permits", as: :permits
   end
-  
 
   # ゲストログイン機能
   devise_scope :user do
