@@ -11,7 +11,7 @@
       <%= image_tag @group_post.get_gp_image, style: "object-fit: contin;", class: "col-12 px-0 my-3" %>
     </div>
     <p><span><i class="fa-solid fa-location-dot"></i> <%= @group_post.address %></span></p>
-    <p><%= @group_post.body %></p>
+    <%= simple_format(@group_post.body, sanitize: true)%>
 
     <!-- 投稿ユーザー情報 -->
     <div class='mb-3'>

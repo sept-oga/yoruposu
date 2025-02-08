@@ -3,7 +3,9 @@
 <div class="pb-3 text-center">
   <h2><%= @user.name %></h2>
   <%= image_tag @user.get_profile_image, width: 150, height: 150, class: "object-fit-cover rounded-circle" %>
-  <p><%= @user.introduction %></p>
+  <div class="mt-3">
+    <%= simple_format(@user.introduction, sanitize: true)%>
+  </div>
   <%= link_to "退会", admin_user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-sm btn-outline-primary" %>
 </div>
 
