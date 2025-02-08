@@ -13,7 +13,7 @@
           <p><%= group_post.body %></p>
           <div class="btn-group pb-3" role="group">
             <% if group_post.group_member.user == current_user %>
-              <%= link_to "編集", edit_group_group_post_path(group_post.group_member.group_id, group_post), class: "btn btn-sm btn-outline-primary" %>
+              <%= link_to "編集", edit_group_group_post_path(group_post.group_member.group_id, group_post), class: "btn btn-sm btn-outline-primary", data: {turbolinks: "false"} %>
             <% end %>
             <% if group_post.group_member.user == current_user || group_post.group_member.group.is_owned_by?(current_user) %>
               <%= link_to "削除", group_group_post_path(group_post.group_member.group_id, group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
