@@ -3,14 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # アソシエーション
+  
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :group_members, dependent: :destroy
   has_many :permits, dependent: :destroy
   has_many :groups, through: :group_members
 
-  
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduction, length: { maximum: 200 }
 
@@ -24,7 +23,6 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [200, 200]).processed
   end
 
-  # 検索
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)
@@ -41,11 +39,11 @@ class User < ApplicationRecord
 
   def self.guest
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
-      # SecureRandom.urlsafe_base64：ランダムな文字列を生成する
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
     end
   end
+  
   def guest_user?
     email == GUEST_USER_EMAIL
   end

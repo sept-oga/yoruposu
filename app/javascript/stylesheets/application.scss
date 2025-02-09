@@ -11,6 +11,10 @@
   height: calc(100vh - 88px - 179px);
 }
 
+#content {
+  display: inline!important;
+}
+
 body {
   font-family: "M PLUS 1p", serif;
   font-weight: 400;

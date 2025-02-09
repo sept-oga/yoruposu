@@ -26,7 +26,6 @@ class Group < ApplicationRecord
     group_members.exists?(user_id: user.id)
   end
 
-  # 検索
   def self.search_for(content, method)
     if method == 'perfect'
       Group.where(name: content)

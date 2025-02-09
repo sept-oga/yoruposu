@@ -14,7 +14,6 @@ class Post < ApplicationRecord
     image
   end
 
-  # 検索
   def self.search_for(content, method)
     if method == 'perfect'
       Post.where(title: content)
