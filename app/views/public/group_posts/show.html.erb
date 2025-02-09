@@ -1,23 +1,23 @@
-<%= render 'layouts/notice', object: @group_post %>
+<%= render "layouts/notice", object: @group_post %>
 
 <!-- 投稿詳細画面 -->
-<div class='container px-sm-0'>
-  <div class='col-sm-12 col-lg-10 px-sm-0 mx-auto'>
+<div class="container px-sm-0">
+  <div class="col-sm-12 col-lg-10 px-sm-0 mx-auto">
 
     <p><%= link_to "<< 投稿一覧へ戻る", group_group_posts_path(@group_post.group_member.group.id) %></p>
 
-    <div class='text-center'>
+    <div class="text-center">
       <h2><%= @group_post.title %></h2>
-      <%= image_tag @group_post.get_gp_image, style: "object-fit: contin;", class: "col-12 px-0 my-3" %>
+      <%= image_tag @group_post.get_gp_image, class: "post-image col-12 px-0 my-3" %>
     </div>
     <p><span><i class="fa-solid fa-location-dot"></i> <%= @group_post.address %></span></p>
     <%= simple_format(@group_post.body, sanitize: true)%>
 
     <!-- 投稿ユーザー情報 -->
-    <div class='mb-3'>
+    <div class="mb-3">
       <% if @group_post.group_member.user == current_user || @group_post.group_member.user.id == @group_post.group_member.group.owner.id || @group_post.group_member.group.is_owned_by?(current_user) %>
         <%= link_to user_path(@user) do %>
-          <%= image_tag @user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %>
+          <%= image_tag @user.get_profile_image, size: "75x75", class: "object-fit-cover rounded-circle" %>
           <%= @user.name %>
         <% end %>
       <% end %>
