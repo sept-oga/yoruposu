@@ -16,7 +16,7 @@
     <!-- 投稿ユーザー情報 -->
     <div class="mb-3">
       <%= link_to admin_user_path(@user) do %>
-        <%= image_tag @user.get_profile_image, size: "75x75", class: "object-fit-cover rounded-circle" %>
+        <%= image_tag @user.get_profile_image, size: "75x75", class: "icon-img rounded-circle" %>
         <%= @user.name %>
       <% end %>
     </div>

@@ -17,7 +17,7 @@
     <div class="mb-3">
       <% if @group_post.group_member.user == current_user || @group_post.group_member.user.id == @group_post.group_member.group.owner.id || @group_post.group_member.group.is_owned_by?(current_user) %>
         <%= link_to user_path(@user) do %>
-          <%= image_tag @user.get_profile_image, size: "75x75", class: "object-fit-cover rounded-circle" %>
+          <%= image_tag @user.get_profile_image, size: "75x75", class: "icon-img rounded-circle" %>
           <%= @user.name %>
         <% end %>
       <% end %>

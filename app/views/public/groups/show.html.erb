@@ -28,7 +28,7 @@
         <%= simple_format(@group.introduction, sanitize: true)%>
         オーナー：
         <%= link_to user_path(@group.owner) do %>
-          <%= image_tag @group.owner.get_profile_image, size: "75x75", class: "object-fit-cover rounded-circle" %>
+          <%= image_tag @group.owner.get_profile_image, size: "75x75", class: "icon-img rounded-circle" %>
           <%= @group.owner.name %>
         <% end %>
 
