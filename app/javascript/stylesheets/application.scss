@@ -11,6 +11,10 @@
   height: calc(100vh - 88px - 179px);
 }
 
+#content {
+  display: inline!important;
+}
+
 body {
   font-family: "M PLUS 1p", serif;
   font-weight: 400;
@@ -24,16 +28,12 @@ ul {
   list-style-position: inside;
 }
 
-.image-container {
-  position: relative;
+.permit-btn {
+  width: 20%;
 }
 
-.text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.icon-img {
+  object-fit: cover;
 }
 
 .bg01 {

@@ -1,8 +1,8 @@
-<div class='container d-flex justify-content-center'>
-  <table class='col-sm-12 col-md-8 px-sm-0 mx-auto'>
+<div class="container d-flex justify-content-center">
+  <table class="col-sm-12 col-md-8 px-sm-0 mx-auto">
     <% users.each do |user| %>
       <tr>
-        <td class="p-2"><%= image_tag user.get_profile_image, width: 75, height: 75, class: "object-fit-cover rounded-circle" %></td>
+        <td class="p-2"><%= image_tag user.get_profile_image, size: "75x75", class: "icon-img rounded-circle" %></td>
         <td class="p-2"><%= link_to user.name, admin_user_path(user) %></td>
         <td class="p-2"><%= user.email %></td>
         <td class="p-2"><%= link_to '退会', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-secondary" %></td>
