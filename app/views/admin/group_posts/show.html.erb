@@ -8,7 +8,7 @@
 
     <div class="text-center">
       <h2><%= @group_post.title %></h2>
-      <%= image_tag @group_post.get_gp_image, style: "object-fit: contain;", class: "col-12 px-0 my-3" %>
+      <%= image_tag @group_post.get_gp_image, class: "col-12 px-0 my-3" %>
     </div>
     <p><span><i class="fa-solid fa-location-dot"></i> <%= @group_post.address %></span></p>
     <%= simple_format(@group_post.body, sanitize: true)%>

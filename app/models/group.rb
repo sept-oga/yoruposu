@@ -21,7 +21,6 @@ class Group < ApplicationRecord
     owner.id == user.id
   end
   
-  # グループ所属しているか
   def includesUser?(user)
     group_members.exists?(user_id: user.id)
   end
