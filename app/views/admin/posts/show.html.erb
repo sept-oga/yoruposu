@@ -23,6 +23,10 @@
 
 <!-- コメント -->
 <div class="mt-5">
-  <%= render "admin/comments/counter", post: @post %>
-  <%= render "admin/comments/index", post: @post %>
+  <div id="comment_counter">
+    <%= render "admin/comments/counter", post: @post %>
+  </div>
+  <div id="comment_index">
+    <%= render "admin/comments/index", post: @post %>
+  </div>
 </div>

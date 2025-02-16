@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <% if comment.user == current_user %>
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？", remote: true %>
       <% end %>
     </tr>
   </table>

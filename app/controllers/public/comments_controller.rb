@@ -1,9 +1,9 @@
 class Public::CommentsController < ApplicationController
   def create
     post = Post.find(params[:post_id])
-    body = current_user.comments.new(comment_params)
-    body.post_id = post.id
-    if body.save
+    comment = current_user.comments.new(comment_params)
+    comment.post_id = post.id
+    if comment.save
       redirect_to post_path(post)
     else
       flash[:alert] = "コメントを入力してください。"

@@ -28,20 +28,13 @@
 
     <!-- コメント -->
     <div class="mt-5">
-      <%= render "public/comments/counter", post: @post %>
-      <%= render "public/comments/index", post: @post %>
-    </div>
-
-    <!-- コメント入力フォーム -->
-    <div>
-      <%= form_with model: [@post, @comment] do |f| %>
-      <div class="form-group">
-        <%= f.text_area :body, rows: '3', placeholder: "コメント", class: "form-control post_body" %>
+      <div id="comment_counter">
+        <%= render "public/comments/counter", post: @post %>
       </div>
-      <div class="form-group">
-        <input type="submit" value="送信" class="btn btn-primary">
+      <div id="comment_index">
+        <%= render "public/comments/index", post: @post %>
       </div>
-      <% end %>
+        <%= render "public/comments/form", post: @post, comment: @comment %>
     </div>
 
   </div>
