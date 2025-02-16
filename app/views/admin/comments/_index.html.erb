@@ -1,0 +1,17 @@
+<% post.comments.each do |comment| %>
+  <table class="table table-borderless">
+    <tr>
+      <%= link_to admin_user_path(comment.user) do %>
+        <%= image_tag comment.user.get_profile_image, size: "75x75", class: "icon-img rounded-circle" %>
+        <%= comment.user.name %>
+      <% end %>
+    </tr>
+    <tr>
+      <%= comment.created_at.strftime('%Y/%m/%d') %>
+      <%= comment.body %>
+    </tr>
+    <tr>
+      <%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    </tr>
+  </table>
+<% end %>
