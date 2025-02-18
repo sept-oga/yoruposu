@@ -1,7 +1,8 @@
 class Admin::CommentsController < ApplicationController
   def destroy
-    Comment.find(params[:id]).destroy
-    redirect_to admin_post_path(params[:post_id])
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
   end
 
   private
