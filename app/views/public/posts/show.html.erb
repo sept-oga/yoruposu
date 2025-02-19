@@ -27,38 +27,14 @@
     </div>
 
     <!-- コメント -->
-    <div>
-      <p>コメント：<%= @post.comments.count %>件</p>
-      <% @post.comments.each do |comment| %>
-        <table class="table table-borderless">
-          <tr>
-            <%= link_to user_path(comment.user) do %>
-              <%= image_tag comment.user.get_profile_image, size: "75x75", class: "icon-img rounded-circle" %>
-              <%= comment.user.name %>
-            <% end %>
-          </tr>
-          <tr>
-            <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
-          </tr>
-          <tr>
-            <% if comment.user == current_user %>
-              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-            <% end %>
-          </tr>
-        </table>
-      <% end %>
-    </div>
-
-    <!-- コメント入力フォーム -->
-    <div>
-      <%= form_with model: [@post, @comment] do |f| %>
-      <div class="form-group">
-        <%= f.text_area :body, rows: '3', placeholder: "コメント", class: "form-control post_body" %>
+    <div class="mt-5">
+      <div id="comment_counter">
+        <%= render "public/comments/counter", post: @post %>
       </div>
-      <div class="form-group">
-        <input type="submit" value="送信" class="btn btn-primary">
+      <div id="comment_index">
+        <%= render "public/comments/index", post: @post %>
       </div>
-      <% end %>
+        <%= render "public/comments/form", post: @post, comment: @comment %>
     </div>
 
   </div>

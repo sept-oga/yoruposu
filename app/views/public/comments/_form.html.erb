@@ -1,0 +1,8 @@
+<%= form_with model: [post, comment], local: false do |f| %>
+  <div class="form-group">
+    <%= f.text_area :body, rows: '3', placeholder: "コメント", class: "form-control post_body", id: "comment_textarea" %>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="送信" class="btn btn-primary">
+  </div>
+<% end %>
