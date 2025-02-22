@@ -1,18 +1,21 @@
 <% post.comments.each do |comment| %>
-  <table class="table table-borderless">
-    <tr>
+  <ul class="list-inline">
+    <li class="list-inline-item">
       <%= link_to user_path(comment.user) do %>
-        <%= image_tag comment.user.get_profile_image, size: "75x75", class: "icon-img rounded-circle" %>
+        <%= image_tag comment.user.get_profile_image, size: "60x60", class: "icon-img rounded-circle" %>
         <%= comment.user.name %>
       <% end %>
-    </tr>
-    <tr>
-      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
-    </tr>
-    <tr>
+    </li>
+    <li class="list-inline-item">
+      <%= comment.created_at.strftime('%Y/%m/%d') %>
+    </li>
+    <li class="list-inline-item">
+      <%= comment.body %>
+    </li>
+    <li class="list-inline-item">
       <% if comment.user == current_user %>
         <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？", remote: true %>
       <% end %>
-    </tr>
-  </table>
+    </li>
+  </ul>
 <% end %>
