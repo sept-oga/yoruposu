@@ -3,9 +3,9 @@ class Group < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: "owner_id"
 
   has_many :group_members, dependent: :destroy
-  has_many :permits, dependent: :destroy
   has_many :users, through: :group_members, source: :user
   has_many :group_posts, through: :group_members, source: :group_posts
+  has_many :permits, dependent: :destroy
   
   validates :name, presence: true, length: { maximum: 50 }
 
