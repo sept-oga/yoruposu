@@ -4,11 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :group_members, dependent: :destroy
-  has_many :groups, through: :group_members
   has_many :permits, dependent: :destroy
+  has_many :groups, through: :group_members
+  has_many :owner_groups, class_name: "Group", foreign_key: "owner_id", dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduction, length: { maximum: 200 }
