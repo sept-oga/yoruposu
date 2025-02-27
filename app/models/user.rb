@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :group_members, dependent: :destroy
   has_many :permits, dependent: :destroy
   has_many :groups, through: :group_members
+  has_many :owner_groups, class_name:"Group",foreign_key:"owner_id", dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduction, length: { maximum: 200 }
