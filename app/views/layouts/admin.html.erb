@@ -1,87 +1,87 @@
 <!DOCTYPE html>
-<head>
-  <title>管理者画面 - ヨルポス</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>管理者画面 - ヨルポス</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <script src="https://kit.fontawesome.com/af13550893.js" crossorigin="anonymous"></script>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+    <script src="https://kit.fontawesome.com/af13550893.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<body>
-  <header>
-    <nav class="navbar navbar-light bg-light shadow">
-      <div class="container">
-        <div class="navbar-brand">ヨルポス - 管理者画面</div>
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light shadow">
+        <div class="container">
+          <div class="navbar-brand">ヨルポス - 管理者画面</div>
 
-          <% if admin_signed_in? %>
-            <!-- メニュー（ハンバーガーメニュー）-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+            <% if admin_signed_in? %>
+              <!-- メニュー（ハンバーガーメニュー）-->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
 
-            <!-- メニューリスト -->
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                <div class="search_form mt-2">
-                  <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
-                    <input type="text" name="content" id="content" placeholder="キーワードを入力" class="col-4 form-control form-control-sm">
-                    <select name="model" id="model" class="btn btn-sm btn-secondary">
-                      <option value="user">ユーザー</option>
-                      <option value="post">投稿</option>
-                      <option value="group">グループ</option>
-                    </select>
-                    <select name="method" id="method" class="btn btn-sm btn-secondary">
-                      <option value="perfect">完全一致</option>
-                      <option value="forward">前方一致</option>
-                      <option value="backward">後方一致</option>
-                      <option value="partial">部分一致</option>
-                    </select>
-                    <%= f.button class: "btn btn-secondary btn-sm" do %>
-                      <i class="fa-solid fa-magnifying-glass"></i>
+              <!-- メニューリスト -->
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                  <div class="search_form mt-2">
+                    <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+                      <input type="text" name="content" id="content" placeholder="キーワードを入力" class="col-4 form-control form-control-sm">
+                      <select name="model" id="model" class="btn btn-sm btn-secondary">
+                        <option value="user">ユーザー</option>
+                        <option value="post">投稿</option>
+                        <option value="group">グループ</option>
+                      </select>
+                      <select name="method" id="method" class="btn btn-sm btn-secondary">
+                        <option value="perfect">完全一致</option>
+                        <option value="forward">前方一致</option>
+                        <option value="backward">後方一致</option>
+                        <option value="partial">部分一致</option>
+                      </select>
+                      <%= f.button class: "btn btn-secondary btn-sm" do %>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                </div>
+                  </div>
 
-                <li>
-                  <%= link_to admin_posts_path, class: "nav-link" do %>
-                    <i></i> 投稿一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to admin_dashboards_path, class: "nav-link" do %>
-                    <i></i> ユーザー一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to admin_groups_path, class: "nav-link" do %>
-                  <i></i> グループ一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
-                    <i></i> ログアウト
-                  <% end %>
-                </li>
-              </ul>
-            </div>
-          <% end %>
-          
+                  <li>
+                    <%= link_to admin_posts_path, class: "nav-link" do %>
+                      <i></i> 投稿一覧
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to admin_dashboards_path, class: "nav-link" do %>
+                      <i></i> ユーザー一覧
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to admin_groups_path, class: "nav-link" do %>
+                    <i></i> グループ一覧
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
+                      <i></i> ログアウト
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            <% end %>
+            
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
 
-  <main class="mb-auto p-4">
-    <%= yield %>
-  </main>
+    <main class="mb-auto p-4">
+      <%= yield %>
+    </main>
 
-  <div class="bg01">
-    <%= image_tag 'bg01.png', class: 'img-fluid' %>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
-</body>
+    <div class="bg01">
+      <%= image_tag 'bg01.png', class: 'img-fluid' %>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
+  </body>
 </html>
