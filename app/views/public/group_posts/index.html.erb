@@ -12,6 +12,8 @@
   <div id="map"></div>
 </div>
 
-<%= paginate @group_posts, theme: 'twitter-bootstrap-4' %>
+<div class="d-flex justify-content-center">
+  <%= paginate @group_posts, theme: 'twitter-bootstrap-4' %>
+</div>
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>

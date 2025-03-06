@@ -2,4 +2,7 @@
 
 <h2 class="text-center">投稿一覧</h2>
 <%= render 'index', posts: @posts %>
-<%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+</div>
