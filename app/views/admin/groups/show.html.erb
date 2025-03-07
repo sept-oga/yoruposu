@@ -5,7 +5,7 @@
 
     <div class="text-center pb-3">
       <h2><%= @group.name %></h2>
-      <%= image_tag @group.get_group_image, size: "200x200", class: "icon-img mb-3" %><br>
+      <%= image_tag @group.get_group_image, size: "200x200", class: "icon-img mt-2 mb-3" %><br>
       <%= link_to "削除", admin_group_path(@group), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
     </div>
 
