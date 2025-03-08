@@ -1,8 +1,8 @@
 <%= render 'layouts/notice', object: @groups %>
 
-<h2 class="text-center">グループ一覧</h2>
-<div class="d-flex justify-content-center mb-3">
-  <%= link_to "グループ作成", new_group_path, class: "btn btn-sm btn-outline-primary" %>
+<div class="text-center">
+  <h2>グループ一覧</h2>
+  <%= link_to "グループ作成", new_group_path, class: "btn btn-sm btn-outline-primary mb-3" %>
 </div>
 
 <%= render 'index', groups: @groups %>

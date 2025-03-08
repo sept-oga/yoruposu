@@ -1,7 +1,7 @@
-<div class="container d-flex justify-content-center">
-  <div class="col-sm-12 col-md-8 px-sm-0 mx-auto">
-    <table class="table", style="color: ghostwhite">
-      <thead>
+<div class="container">
+  <div class="col-sm-12 col-md-10 px-sm-0 mx-auto">
+    <table class="table table-hover bg-light">
+      <thead class="thead-dark">
         <tr>
           <th></th>
           <th>グループ名</th>
@@ -13,7 +13,7 @@
       <% groups.each do |group| %>
         <tbody>
           <tr>
-            <td><%= image_tag group.get_group_image, size: "50x50", class: "icon-img" %></td>
+            <td><%= image_tag group.get_group_image, size: "50x50", class: "icon-img shadow-sm" %></td>
             <td><%= link_to group.name, group, class: "group_#{group.id}" %></td>
             <td><%= group.owner.name %></td>
             <td><%= group.group_members.count %></td>
