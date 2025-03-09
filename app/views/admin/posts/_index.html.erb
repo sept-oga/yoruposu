@@ -1,20 +1,28 @@
 <div class="row row-cols-2 row-cols-md-3 g-4">
   <% posts.each do |post| %>
     <div class="col mb-3">
-    <div class="card bg-dark h-100">
-      <%= link_to admin_post_path(post.id) do %>
-        <%= image_tag post.get_image, class: "img-fluid card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h4><%= post.title %></h4>
-        <%= link_to admin_user_path(post.user) do %>
-          <%= image_tag post.user.get_profile_image, size: "50x50", class: "icon-img rounded-circle my-2" %>
-          <%= post.user.name %>
+
+      <div class="card bg-dark h-100">
+        <%= link_to admin_post_path(post.id) do %>
+          <%= image_tag post.get_image, class: "img-fluid card-img-top" %>
         <% end %>
-        <p><%= post.body %></p>
-        <p><%= link_to "#{post.comments.count} コメント", admin_post_path(post.id) %></p>
+        
+        <div class="card-body">
+          <h4><%= post.title %></h4>
+
+          <%= link_to admin_user_path(post.user) do %>
+            <%= image_tag post.user.get_profile_image, size: "50x50", class: "icon-img rounded-circle my-2" %>
+            <%= post.user.name %>
+          <% end %>
+
+          <p><%= post.body.truncate(100) %></p>
+
+          <%= link_to admin_post_path(post.id) do %>
+            <i class="fa-solid fa-comment"></i> <%= post.comments.count %>
+          <% end %>
+        </div>
       </div>
-    </div>
+
     </div>
   <% end %>
 </div>
