@@ -10,7 +10,7 @@
         <div class="card-body">
           <h4><%= group_post.title %></h4>
           <p><span><i class="fa-solid fa-location-dot"></i> <%= group_post.address %></span></p>
-          <p><%= group_post.body %></p>
+          <p><%= group_post.body.truncate(100) %></p>
           <div class="btn-group pb-3" role="group">
             <% if group_post.group_member.user == current_user %>
               <%= link_to "編集", edit_group_group_post_path(group_post.group_member.group_id, group_post), class: "btn btn-sm btn-outline-primary", data: {turbolinks: "false"} %>

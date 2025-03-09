@@ -13,7 +13,7 @@
             <%= image_tag post.user.get_profile_image, size: "50x50", class: "icon-img rounded-circle my-2" %>
             <%= post.user.name %>
           <% end %>
-          <p><%= post.body %></p>
+          <p><%= post.body.truncate(100) %></p>
           <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
         </div>
       </div>

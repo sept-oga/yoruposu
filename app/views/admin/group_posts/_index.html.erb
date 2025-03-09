@@ -10,7 +10,7 @@
         <div class="card-body">
           <h4><%= group_post.title %></h4>
           <p><span><i class="fa-solid fa-location-dot"></i> <%= group_post.address %></span></p>
-          <p><%= group_post.body %></p>
+          <p><%= group_post.body.truncate(100) %></p>
           <div class="pb-3">
             <%= link_to "削除", admin_group_group_post_path(group_post.group_member.group_id, group_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-outline-primary" %>
           </div>
