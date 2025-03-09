@@ -39,5 +39,4 @@
 yarn-debug.log*
 .yarn-integrity
 
-# 必ずgithubにpushされていないか確認する（同一行にコメントを残さない）
 /.env

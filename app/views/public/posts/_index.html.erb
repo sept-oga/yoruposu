@@ -9,14 +9,20 @@
 
         <div class="card-body">
           <h4><%= post.title %></h4>
+
           <%= link_to user_path(post.user) do %>
             <%= image_tag post.user.get_profile_image, size: "50x50", class: "icon-img rounded-circle my-2" %>
             <%= post.user.name %>
           <% end %>
+
           <p><%= post.body.truncate(100) %></p>
-          <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+
+          <%= link_to post_path(post.id) do %>
+            <i class="fa-solid fa-comment"></i> <%= post.comments.count %>
+          <% end %>
         </div>
       </div>
+      
     </div>
   <% end %>
 </div>
