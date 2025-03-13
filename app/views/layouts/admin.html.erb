@@ -76,11 +76,20 @@
 
     <main class="mb-auto p-4">
       <%= yield %>
+
+      <span id="back">
+        <a href="#">
+          <i class="fa-solid fa-circle-up fa-3x"></i>
+        </a>
+      </span>
+
     </main>
 
     <div class="bg01">
       <%= image_tag 'bg01.png', class: 'img-fluid' %>
     </div>
+
+    <script src="javascript/packs/scroll_top.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
   </body>

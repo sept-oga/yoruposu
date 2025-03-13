@@ -15,6 +15,15 @@
   display: inline!important;
 }
 
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+#back img {
+  width: 50px;
+}
+
 body {
   font-family: "M PLUS 1p", serif;
   font-weight: 400;
