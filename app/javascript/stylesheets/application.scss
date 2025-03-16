@@ -15,6 +15,18 @@
   display: inline!important;
 }
 
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  
+}
+
+.fa-circle-chevron-up {
+  color: ghostwhite;
+  opacity: 0.6;
+}
+
 body {
   font-family: "M PLUS 1p", serif;
   font-weight: 400;
