@@ -8,15 +8,18 @@
     
     <div class="row mt-5">
       <div class="col-11 col-md-12 mx-auto">
+
         <% if @permits.present? %>
           <div class="table-responsive">
             <table class="table table-hover text-nowrap bg-light">
+
               <thead class="thead-dark">
                 <tr>
                   <th>名前</th>
                   <th></th>
                 </tr>
               </thead>
+
               <tbody>
                 <% @permits.each do |permit| %>
                   <tr>
@@ -27,17 +30,21 @@
                   </tr>
                 <% end %>
               </tbody>
+
             </table>
           </div>
         <% else %>
           <p class="text-center">承認待ちユーザーはいません。</p>
         <% end %>
+
       </div>
     </div>
 
     <h3 class="text-center mt-3">メンバー一覧</h3>
+    
     <div class="row mt-3">
       <div class="col-11 col-md-10 mx-auto">
+
         <% @users.each do |user| %>
           <table class="mb-3">
             <tr>
@@ -51,6 +58,7 @@
             </tr>
           </table>
         <% end %>
+
       </div>
     </div>
 
